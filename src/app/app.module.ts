@@ -12,8 +12,9 @@ import { FehlermeldungenComponent } from './fehlermeldungen/fehlermeldungen.comp
 import { AnlageneffektivitaetComponent } from './anlageneffektivitaet/anlageneffektivitaet.component';
 import { AnmeldenComponent } from './anmelden/anmelden.component';
 import { EinstellungenComponent } from './einstellungen/einstellungen.component';
+import { ErrorComponent } from './error/error.component';
 
-
+//Definition der Routen bzw. Links, die auf die verschiedenen Dashboards leiten (Links aus Navigationsleiste)
 const appRoute: Routes = [
   {path: '', component: IndexContentComponent},
   {path: 'auftragshistorie', component: AuftragshistorieComponent},
@@ -22,7 +23,8 @@ const appRoute: Routes = [
   {path: 'fehlermeldungen', component: FehlermeldungenComponent},
   {path: 'anlageneffektivitaet', component: AnlageneffektivitaetComponent},
   {path: 'anmelden', component: AnmeldenComponent},
-  {path: 'einstellungen', component: EinstellungenComponent}
+  {path: 'einstellungen', component: EinstellungenComponent},
+  {path: '**', component: ErrorComponent} //Error Route immer als letzte schreiben!
 ]
 
 @NgModule({
@@ -34,7 +36,8 @@ const appRoute: Routes = [
     AuftragswarteschlangeComponent,
     AnlageneffektivitaetComponent,
     AnmeldenComponent,
-    EinstellungenComponent
+    EinstellungenComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
