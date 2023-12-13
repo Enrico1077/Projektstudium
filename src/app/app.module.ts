@@ -13,6 +13,7 @@ import { AnlageneffektivitaetComponent } from './anlageneffektivitaet/anlageneff
 import { AnmeldenComponent } from './anmelden/anmelden.component';
 import { EinstellungenComponent } from './einstellungen/einstellungen.component';
 import { ErrorComponent } from './error/error.component';
+import { HttpClientModule } from '@angular/common/http'
 
 //Definition der Routen bzw. Links, die auf die verschiedenen Dashboards leiten (Links aus Navigationsleiste)
 const appRoute: Routes = [
@@ -42,7 +43,8 @@ const appRoute: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoute)
+    RouterModule.forRoot(appRoute),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
