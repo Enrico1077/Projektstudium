@@ -15,6 +15,8 @@ import { EinstellungenComponent } from './einstellungen/einstellungen.component'
 import { ErrorComponent } from './error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { RegistrierenComponent } from './registrieren/registrieren.component';
+
 
 //Definition der Routen bzw. Links, die auf die verschiedenen Dashboards leiten (Links aus Navigationsleiste)
 const appRoute: Routes = [
@@ -26,6 +28,7 @@ const appRoute: Routes = [
   {path: 'anlageneffektivitaet', component: AnlageneffektivitaetComponent},
   {path: 'anmelden', component: AnmeldenComponent},
   {path: 'einstellungen', component: EinstellungenComponent},
+  {path: 'registrieren', component: RegistrierenComponent},
   {path: '**', component: ErrorComponent} //Error Route immer als letzte schreiben!
 ]
 
@@ -39,6 +42,7 @@ const appRoute: Routes = [
     AnlageneffektivitaetComponent,
     AnmeldenComponent,
     EinstellungenComponent,
+    RegistrierenComponent,
     ErrorComponent
   ],
   imports: [

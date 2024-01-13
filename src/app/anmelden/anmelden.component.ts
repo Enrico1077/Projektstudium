@@ -40,7 +40,7 @@ export class AnmeldenComponent {
   });
 
   sendData(){
-    this.apiService.postData(this.userModel).subscribe(
+    this.apiService.postData(this.userModel, 'apiUrlLogin').subscribe(
       (response) => {
         console.log('Erfolgreich:', response);
       },

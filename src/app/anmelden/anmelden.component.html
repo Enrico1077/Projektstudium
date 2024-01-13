@@ -21,17 +21,23 @@
     <small class="text-danger" [class.d-none]="password.valid || password.untouched">Passwort wird benötigt</small>
   </div>
 
+  <div class="text-center">
+    Noch keinen Accout?
+    <a href="./registrieren">Hier registrieren</a>
+  </div>
+
   {{ userModel | json }}
   <br>
 
   <button (click)="sendData()">Anmelden</button>
   <br>
   <div class="text-center">
-    Sollten Sie Ihre Zugangsdaten nicht mehr wissen,
-    <a href='https://www.hedelius.de/kontakt/kontaktformular.html' >kontaktieren Sie bitte Hedelius.</a>
+    Sollten Sie Ihre Zugangsdaten verloren haben,
+    <a href='https://www.hedelius.de/kontakt/kontaktformular.html'>kontaktieren Sie bitte Hedelius.</a>
   </div>
 </form>
 
+<!--Nachfolgend Verbleibsel eines yt-Tutorials-->
 <!--Part of the tutorial
   <form #userForm="ngForm">
 

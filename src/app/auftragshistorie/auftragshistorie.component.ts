@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./auftragshistorie.component.scss']
 })
 export class AuftragshistorieComponent {
-
+  test = false;
 }
