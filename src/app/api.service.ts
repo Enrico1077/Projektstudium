@@ -6,7 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'https://development-pxx2px2qgq-ez.a.run.app/JsonTest';
+
+
+
+   private apiUrl = 'https://development-pxx2px2qgq-ez.a.run.app/JsonTest';
 
   constructor(private http: HttpClient) {}
 

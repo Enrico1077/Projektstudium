@@ -1,0 +1,12 @@
+{"Hedelius_App": {
+    "App_Daten": {
+        "Aktuelles_NC-Programm": "Progamm_1.SPF",
+        "Aktuelle_Spindeldrehzahl": 12000,
+        "Betriebsart": "Auto",
+        "Energie_W": 5325,
+        "Restlaufzeit_Minuten": 13,
+        "Override_Feed": 100,
+		"Override_Spindel": 100,
+        "Error": "Wartung in 50 Stunden"
+    }
+}}
