@@ -63,6 +63,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options":{
+            "buildTarget": "Projektstudium:build"
+          },
           "configurations": {
             "production": {
               "buildTarget": "Projektstudium:build:production"
