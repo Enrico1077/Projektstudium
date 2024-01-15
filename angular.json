@@ -63,15 +63,12 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options":{
-            "buildTarget": "Projektstudium:build"
-          },
           "configurations": {
             "production": {
-              "buildTarget": "Projektstudium:build:production"
+              "browserTarget": "Projektstudium:build:production"
             },
             "development": {
-              "buildTarget": "Projektstudium:build:development"
+              "browserTarget": "Projektstudium:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "Projektstudium:build"
+            "browserTarget": "Projektstudium:build"
           }
         },
         "test": {
