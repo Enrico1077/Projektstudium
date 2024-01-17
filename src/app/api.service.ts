@@ -9,8 +9,8 @@ export class ApiService {
 
   url={
   apiUrlRegister: 'https://development-pxx2px2qgq-ez.a.run.app/auth/register', //url zum registrieren (Konto erstellen)
-  apiUrlLogin: 'https://development-pxx2px2qgq-ez.a.run.app/auth/login', //url zum login
-  apiUrlProfile: 'https://development-pxx2px2qgq-ez.a.run.app/profile/test' //braucht cookie und stellt fest, ob man angemeldet ist
+  apiUrlLogin:    'https://development-pxx2px2qgq-ez.a.run.app/auth/login', //url zum login
+  apiUrlProfile:  'https://development-pxx2px2qgq-ez.a.run.app/profile/test' //braucht cookie und stellt fest, ob man angemeldet ist
   }
 
   constructor(private http: HttpClient) {}
