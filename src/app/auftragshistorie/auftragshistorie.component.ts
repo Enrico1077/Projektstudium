@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GlobalService } from '../global.service';
 
 @Component({
   selector: 'app-auftragshistorie',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./auftragshistorie.component.scss']
 })
 export class AuftragshistorieComponent {
-  test = false;
+test = true;
+
+  constructor(
+    private globalService: GlobalService
+  ){}
+
+  userLoggedIn(): boolean{
+    return this.globalService.userLoggedIn;
+  }
+
 }

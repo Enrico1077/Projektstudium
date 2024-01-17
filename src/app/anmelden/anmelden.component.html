@@ -1,7 +1,7 @@
 <h1 class="h1-text-center mt-2">Anmelden<span style="color:#ed1c24">.</span></h1>
 
 <div class="text-center">Bitte geben Sie Ihre Benutzerdaten ein:</div>
-
+<div class="text-center"><br>Benutzerdaten für Tests:<br>Benutzername: testusername<br>Passwort: testpassword<br></div>
 <div class="container-fluid mb-5">
 
 <!--Hier eigentlicher Code. Weiter unten sind auskommentiert Teile eines Tutorials zu Forms-->
@@ -26,16 +26,17 @@
     <a href="./registrieren">Hier registrieren</a>
   </div>
 
-  {{ userModel | json }}
+  <!--{{ userModel | json }}-->
   <br>
 
   <button (click)="sendData()">Anmelden</button>
   <br>
   <div class="text-center">
-    Sollten Sie Ihre Zugangsdaten verloren haben,
+    Sollten Sie Ihre Zugangsdaten vergessen haben,
     <a href='https://www.hedelius.de/kontakt/kontaktformular.html'>kontaktieren Sie bitte Hedelius.</a>
   </div>
 </form>
+<div *ngIf="userLoggedIn()">User ist eingeloggt</div>
 
 <!--Nachfolgend Verbleibsel eines yt-Tutorials-->
 <!--Part of the tutorial

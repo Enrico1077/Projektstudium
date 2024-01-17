@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
 import { FormControl, FormGroup, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { User } from '../user';
+import { GlobalService } from '../global.service';
 
 @Component({
   selector: 'app-anmelden',
@@ -31,7 +32,8 @@ export class AnmeldenComponent {
 
   constructor(
     private apiService: ApiService,
-    private formBuilder: FormBuilder)
+    private formBuilder: FormBuilder,
+    private globalService: GlobalService)
   {}
 
   loginForm = this.formBuilder.group({
@@ -43,11 +45,22 @@ export class AnmeldenComponent {
     this.apiService.postData(this.userModel, 'apiUrlLogin').subscribe(
       (response) => {
         console.log('Erfolgreich:', response);
+        if(response.message=='Login has been sucessfull')
+        {
+          this.globalService.userLoggedIn=true;
+          console.log('wir sind hier!');
+          window.alert('Anmeldung erfolgreich!');
+        }
+
       },
       (error) => {
         console.error('Fehler:', error);
       }
     );
+  }
+
+  userLoggedIn(): boolean{
+    return this.globalService.userLoggedIn;
   }
 
   onFormSubmit(){

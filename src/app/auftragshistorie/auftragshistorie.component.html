@@ -1,7 +1,7 @@
 <h1 class="h1-text-center mt-3">Auftragshistorie<span style="color:#ed1c24">.</span></h1>
 
 <!--Anzeigen, wenn Anmeldung bereits erfolgt ist-->
-<div class="table-container" *ngIf="test">
+<div class="table-container" *ngIf="userLoggedIn()">
 <table>
     <tr>
         <th>Datum</th>
@@ -39,7 +39,7 @@
 </div>
 
 <!--Anzeigen, wenn keine Anmeldung erfolgt ist.-->
-<div *ngIf="!test" class="text-center mt-3">
+<div *ngIf="!userLoggedIn()" class="text-center mt-3">
   Sie haben keinen Zugriff auf diese Seite.
   <br>
   <a href="./anmelden" class="bold">Bitte melden Sie sich vorher an.</a>
