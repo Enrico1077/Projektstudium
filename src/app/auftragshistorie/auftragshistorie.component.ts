@@ -17,4 +17,9 @@ test = true;
     return this.globalService.userLoggedIn;
   }
 
+  //Login-Status mit Cookies überprüfen
+  checkLoginStatus(){
+
+  }
+
 }

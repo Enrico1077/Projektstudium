@@ -4,13 +4,14 @@ import { FormControl, FormGroup, ReactiveFormsModule, FormBuilder } from '@angul
 import { User } from '../user';
 import { GlobalService } from '../global.service';
 
+
 @Component({
   selector: 'app-anmelden',
   templateUrl: './anmelden.component.html',
   styleUrls: ['./anmelden.component.scss'],
 })
 export class AnmeldenComponent {
-  topics = ['Angular', 'React', 'Vue'];
+    topics = ['Angular', 'React', 'Vue'];
 
   topicHasError = true;
 
@@ -48,7 +49,6 @@ export class AnmeldenComponent {
         if(response.message=='Login has been sucessfull')
         {
           this.globalService.userLoggedIn=true;
-          console.log('wir sind hier!');
           window.alert('Anmeldung erfolgreich!');
         }
 

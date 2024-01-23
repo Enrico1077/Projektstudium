@@ -16,7 +16,7 @@ import { ErrorComponent } from './error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { RegistrierenComponent } from './registrieren/registrieren.component';
-
+import { CookieService } from 'ngx-cookie-service';
 
 //Definition der Routen bzw. Links, die auf die verschiedenen Dashboards leiten (Links aus Navigationsleiste)
 const appRoute: Routes = [
@@ -53,7 +53,7 @@ const appRoute: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
