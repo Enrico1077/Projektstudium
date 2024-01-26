@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import  { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class ApiService {
   apiUrlProfile:  'https://development-pxx2px2qgq-ez.a.run.app/profile/test' //braucht cookie und stellt fest, ob man angemeldet ist
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient) {}
 
   postData(data: any, _url: string): Observable<any> {
     const apiUrl = (this.url as any)[_url];

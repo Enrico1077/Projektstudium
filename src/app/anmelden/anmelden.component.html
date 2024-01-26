@@ -4,7 +4,7 @@
 <div class="text-center"><br>Benutzerdaten für Tests:<br>Benutzername: testusername<br>Passwort: testpassword<br></div>
 <div class="container-fluid mb-5">
 
-<!--Hier eigentlicher Code. Weiter unten sind auskommentiert Teile eines Tutorials zu Forms-->
+<!--Hier eigentlicher Code. Weiter unten sind auskommentierte Teile eines Tutorials zu Forms-->
 <form #userForm="ngForm">
 
   <div class="form-group">
@@ -30,6 +30,7 @@
   <br>
 
   <button (click)="sendData()">Anmelden</button>
+  <button (click)="logOff()">Abmelden</button>
   <br>
   <div class="text-center">
     Sollten Sie Ihre Zugangsdaten vergessen haben,

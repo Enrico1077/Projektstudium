@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GlobalService } from '../global.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-auftragshistorie',
@@ -10,11 +11,18 @@ export class AuftragshistorieComponent {
 test = true;
 
   constructor(
-    private globalService: GlobalService
+    private globalService: GlobalService,
+    private cookieService: CookieService
   ){}
 
   userLoggedIn(): boolean{
-    return this.globalService.userLoggedIn;
+    if(this.cookieService.get("login")=="true")
+    {
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
   //Login-Status mit Cookies überprüfen
