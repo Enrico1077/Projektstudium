@@ -17,8 +17,8 @@ export class ApiService {
   constructor(
     private http: HttpClient) {}
 
-  postData(data: any, _url: string): Observable<any> {
+  postData(data: any, _url: string, options?: any): Observable<any> {
     const apiUrl = (this.url as any)[_url];
-    return this.http.post(apiUrl, data);
+    return this.http.post(apiUrl, data, options);
   }
 }

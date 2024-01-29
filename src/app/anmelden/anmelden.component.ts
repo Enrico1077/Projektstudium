@@ -42,7 +42,12 @@ export class AnmeldenComponent {
   });
 
   sendData(){
-    this.apiService.postData(this.userModel, 'apiUrlLogin').subscribe(
+    const requestOptions = {
+      withCredentials: true 
+    };
+
+  
+    this.apiService.postData(this.userModel, 'apiUrlLogin', requestOptions ).subscribe(
       (response) => {
         console.log('Erfolgreich:', response);
         if(response.message=='Login has been sucessfull')
