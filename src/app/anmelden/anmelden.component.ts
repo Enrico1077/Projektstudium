@@ -43,16 +43,15 @@ export class AnmeldenComponent {
 
   sendData(){
     const requestOptions = {
-      withCredentials: true 
+      withCredentials: true,
     };
 
-  
     this.apiService.postData(this.userModel, 'apiUrlLogin', requestOptions ).subscribe(
       (response) => {
         console.log('Erfolgreich:', response);
         if(response.message=='Login has been sucessfull')
         {
-          this.cookieService.set("login", "true");
+          this.cookieService.set("sessionFrontend","session-id");
           window.alert('Anmeldung erfolgreich!');
         }
 
@@ -64,13 +63,17 @@ export class AnmeldenComponent {
     );
   }
 
-  userLoggedIn(): boolean{
-    if(this.cookieService.get("login")=="true")
+  userLoggedIn(){
+    if(this.cookieService.check("session"))
     {
-      return true;
+      console.log("Backend-Cookie ist da");
     }
     else{
-      return false;
+      window.alert("session ist nicht da");
+    }
+    if(this.cookieService.check("loginSuccessful"))
+    {
+      console.log("Eigener Cookie ist da!");
     }
   }
 
@@ -80,5 +83,25 @@ export class AnmeldenComponent {
 
   logOff(){
     this.cookieService.set("login","false");
+  }
+
+  getCookie(name: any) {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i].trim();
+      if (cookie.indexOf(name + '=') === 0) {
+        return cookie.substring(name.length + 1);
+      }
+    }
+    return null;
+  }
+
+  cookieExists(){
+    var sessionCookie = this.getCookie('session');
+    if (sessionCookie) {
+      console.log('Session cookie exists with value:', sessionCookie);
+    } else {
+      console.log('Session cookie does not exist.');
+    }
   }
 }

@@ -16,7 +16,7 @@ test = true;
   ){}
 
   userLoggedIn(): boolean{
-    if(this.cookieService.get("login")=="true")
+    if(this.cookieService.check('session'))
     {
       return true;
     }
