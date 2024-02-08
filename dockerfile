@@ -1,17 +1,13 @@
-FROM node:20-alpine AS build
+FROM node:latest AS builder
 
 WORKDIR /app
-
-COPY . .
-
+COPY package*.json ./
 RUN npm install
-
+COPY . .
 RUN npm run build
 
-# Serve Application using Nginx Server
 
-FROM nginx:alpine
-
-COPY --from=build /app/dist/projektstudium/ /usr/share/nginx/html
-
-EXPOSE 80
+FROM nginx:latest
+COPY --from=builder /app/dist/projektstudium /usr/share/nginx/html
+EXPOSE 8080
+CMD ["nginx", "-g", "daemon off;"]
