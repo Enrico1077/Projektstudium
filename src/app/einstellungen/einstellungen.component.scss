@@ -13,6 +13,11 @@
   display: block;
 }
 
+.switch-container {
+  display: flex;
+  align-items: center;
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -68,22 +73,6 @@ input:checked + .slider:before {
 }
 
 /* Darkmode icon */
-.darkmode-item {
-  position: relative;
-}
-
-.darkmode-item .switch {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.darkmode-item .slider {
-  position: relative;
-}
-
-.darkmode-item .darkmode-icon {
-  position: absolute;
-  top: 0;
-  left: 60px; /* Adjust this value to move the icon to the right of the switch */
+.darkmode-icon {
+  margin-left: 50px; /* Adjust this value to add some space between the switch and the icon */
 }
