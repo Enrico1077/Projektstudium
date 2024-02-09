@@ -20,12 +20,6 @@
   height: 34px;
 }
 
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
 .slider {
   position: absolute;
   cursor: pointer;
@@ -71,4 +65,25 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* Darkmode icon */
+.darkmode-item {
+  position: relative;
+}
+
+.darkmode-item .switch {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.darkmode-item .slider {
+  position: relative;
+}
+
+.darkmode-item .darkmode-icon {
+  position: absolute;
+  top: 0;
+  left: 60px; /* Adjust this value to move the icon to the right of the switch */
 }
