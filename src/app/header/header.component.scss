@@ -55,6 +55,18 @@ a:hover {
   margin-bottom: 1px;
 }
 
+.menu-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Add this line */
+  min-width: 600px; /* Add this line */
+}
+
+.menu-item {
+  margin: 0 10px;
+  flex-basis: 5px; /* Add this line */
+}
+
 .profilbild {
   height: 40px;
   margin-bottom: 1px;
@@ -91,4 +103,15 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-basis: 200px; /* Add this line */
+}
+
+@media screen and (max-width: 628px) {
+  .menu-links {
+    flex-direction: column;
+  }
+
+  .menu-item {
+    margin: 5px 0;
+  }
 }
