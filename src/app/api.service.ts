@@ -9,9 +9,9 @@ import  { CookieService } from 'ngx-cookie-service';
 export class ApiService {
 
   url={
-  apiUrlRegister: 'https://development-pxx2px2qgq-ez.a.run.app/auth/register', //url zum registrieren (Konto erstellen)
-  apiUrlLogin:    'https://development-pxx2px2qgq-ez.a.run.app/auth/login', //url zum login
-  apiUrlProfile:  'https://development-pxx2px2qgq-ez.a.run.app/profile/test' //braucht cookie und stellt fest, ob man angemeldet ist
+  apiUrlRegister: 'https://https://projektstudium.xn--fr-den-bachelor-zvb.eu//auth/register', //url zum registrieren (Konto erstellen)
+  apiUrlLogin:    'https://https://projektstudium.xn--fr-den-bachelor-zvb.eu//auth/login', //url zum login
+  apiUrlProfile:  'https://https://projektstudium.xn--fr-den-bachelor-zvb.eu//profile/test' //braucht cookie und stellt fest, ob man angemeldet ist
   }
 
   constructor(
