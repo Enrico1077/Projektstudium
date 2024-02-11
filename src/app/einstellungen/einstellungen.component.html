@@ -5,24 +5,57 @@
     <li class="password-item">
       <div class="password-toggle">Passwort</div>
       <div class="password-options">
-        <p>Passwort ändern</p>
-        <p>Passwort vergessen?</p>
+        <p><button onclick="changePassword()">Passwort ändern</button></p>
+        <p><button onclick="forgotPassword()">Passwort vergessen?</button></p>
       </div>
     </li>
     <li class="display-item">
       <div class="display-toggle">Darstellungseinstellung</div>
       <div class="display-options">
-        <p></p>
-        <p>Option 2</p>
-        <p>Option 3</p>
+        <p><input type="checkbox" id="advancedDisplay" onchange="toggleAdvancedDisplay()" /> Erweiterte Darstellung</p>
+        <p><input type="checkbox" id="singleMachine" onchange="toggleSingleMachine()" /> einzelne Maschinen darstellen</p>
       </div>
     </li>
-    <li class="darkmode-item">
-      <label class="switch">
-        <input type="checkbox" />
-        <span class="slider round"></span>
+    <li>
+      <div class="darkmode-toggle">
         Darkmode
-      </label>
+        <label class="switch">
+          <input type="checkbox" id="darkmode" onchange="toggleDarkmode()" />
+          <span class="slider round"></span>
+        </label>
+      </div>
     </li>
   </ol>
 </div>
+
+<script>
+  function changePassword() {
+    // Fügen Sie hier den Code hinzu, um das Passwort zu ändern
+    console.log('Passwort ändern');
+  }
+
+  function forgotPassword() {
+    // Fügen Sie hier den Code hinzu, um das Passwort zu vergessen
+    console.log('Passwort vergessen');
+  }
+
+  function toggleAdvancedDisplay() {
+    // Fügen Sie hier den Code hinzu, um die erweiterte Darstellung zu aktivieren/deaktivieren
+    console.log('Erweiterte Darstellung aktiviert/deaktiviert');
+  }
+
+  function toggleSingleMachine() {
+    // Fügen Sie hier den Code hinzu, um die Darstellung einzelner Maschinen zu aktivieren/deaktivieren
+    console.log('Einzelne Maschinen darstellen aktiviert/deaktiviert');
+  }
+
+  function toggleDarkmode() {
+    // Fügen Sie hier den Code hinzu, um den Darkmode zu aktivieren/deaktivieren
+    const darkmode = document.getElementById('darkmode');
+    if (darkmode.checked) {
+      document.body.classList.add('darkmode');
+    } else {
+      document.body.classList.remove('darkmode');
+    }
+  }
+</script>
