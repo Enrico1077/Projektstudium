@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import  { CookieService } from 'ngx-cookie-service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,4 +21,6 @@ export class ApiService {
     const apiUrl = (this.url as any)[_url];
     return this.http.post(apiUrl, data, options);
   }
+
+  //getData(data: any, _url: string, options?: any):
 }
