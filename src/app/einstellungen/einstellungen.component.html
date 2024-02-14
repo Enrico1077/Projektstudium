@@ -1,61 +1,24 @@
 <h1 class="h1-text-center mt-3">Einstellungen<span style="color:#ed1c24">.</span></h1>
 
-<div>
-  <ol>
-    <li class="password-item">
-      <div class="password-toggle">Passwort</div>
-      <div class="password-options">
-        <p><button onclick="changePassword()">Passwort ändern</button></p>
-        <p><button onclick="forgotPassword()">Passwort vergessen?</button></p>
-      </div>
+<nav>
+  <ul>
+    <li>Passwort
+      <ul>
+        <li><a href="#">Passwort ändern</a></li>
+        <li><a href="#">Passwort vergessen?</a></li>
+      </ul>
     </li>
-    <li class="display-item">
-      <div class="display-toggle">Darstellungseinstellung</div>
-      <div class="display-options">
-        <p><input type="checkbox" id="advancedDisplay" onchange="toggleAdvancedDisplay()" /> Erweiterte Darstellung</p>
-        <p><input type="checkbox" id="singleMachine" onchange="toggleSingleMachine()" /> einzelne Maschinen darstellen</p>
-      </div>
+    <li>Darstellungseinstellung
+      <ul>
+        <li><input type="checkbox" id="advancedDisplay" onchange="toggleAdvancedDisplay()" /> Erweiterte Darstellung</li>
+        <li><input type="checkbox" id="singleMachine" onchange="toggleSingleMachine()" /> einzelne Maschinen darstellen</li>
+      </ul>
     </li>
-    <li>
-      <div class="darkmode-toggle">
-        Darkmode
-        <label class="switch">
-          <input type="checkbox" id="darkmode" onchange="toggleDarkmode()" />
-          <span class="slider round"></span>
-        </label>
-      </div>
+    <li class="darkmode-toggle">Darkmode
+      <label class="switch">
+        <input type="checkbox" id="darkmode" onchange="toggleDarkmode()" />
+        <span class="slider round"></span>
+      </label>
     </li>
-  </ol>
-</div>
-
-<script>
-  function changePassword() {
-    // Fügen Sie hier den Code hinzu, um das Passwort zu ändern
-    console.log('Passwort ändern');
-  }
-
-  function forgotPassword() {
-    // Fügen Sie hier den Code hinzu, um das Passwort zu vergessen
-    console.log('Passwort vergessen');
-  }
-
-  function toggleAdvancedDisplay() {
-    // Fügen Sie hier den Code hinzu, um die erweiterte Darstellung zu aktivieren/deaktivieren
-    console.log('Erweiterte Darstellung aktiviert/deaktiviert');
-  }
-
-  function toggleSingleMachine() {
-    // Fügen Sie hier den Code hinzu, um die Darstellung einzelner Maschinen zu aktivieren/deaktivieren
-    console.log('Einzelne Maschinen darstellen aktiviert/deaktiviert');
-  }
-
-  function toggleDarkmode() {
-    // Fügen Sie hier den Code hinzu, um den Darkmode zu aktivieren/deaktivieren
-    const darkmode = document.getElementById('darkmode');
-    if (darkmode.checked) {
-      document.body.classList.add('darkmode');
-    } else {
-      document.body.classList.remove('darkmode');
-    }
-  }
-</script>
+  </ul>
+</nav>
