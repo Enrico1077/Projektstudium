@@ -1,8 +1,6 @@
 {
-	"username":"Enrico",
-	"password":"123",
-	"maschineID": "1",
-    	"Hedelius_App": {
+
+
     "App_Daten": {
         "Aktuelles_NC-Programm": "Progamm_1.SPF",
 		"Maschinenzeit_Steuerung": "639",
@@ -24,4 +22,4 @@
         "Error": "Wartung in 50 Stunden"
     }
 }
-	}
+

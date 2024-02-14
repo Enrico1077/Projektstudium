@@ -22,5 +22,9 @@ export class ApiService {
     return this.http.post(apiUrl, data, options);
   }
 
+  public getJsonData(): Observable<any>{
+    return this.http.get('/assets/Hedelius_App.json');
+  }
+
   //getData(data: any, _url: string, options?: any):
 }

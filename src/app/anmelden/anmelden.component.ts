@@ -51,7 +51,6 @@ export class AnmeldenComponent {
         console.log('Erfolgreich:', response);
         if(response.message=='Login has been sucessfull')
         {
-          this.cookieService.set("sessionFrontend","session-id");
           window.alert('Anmeldung erfolgreich!');
         }
 
@@ -62,6 +61,8 @@ export class AnmeldenComponent {
       }
     );
   }
+
+
 
   userLoggedIn(){
     if(this.cookieService.check("session"))
