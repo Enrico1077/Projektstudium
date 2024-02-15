@@ -76,6 +76,7 @@ export class AnmeldenComponent {
     {
       console.log("Eigener Cookie ist da!");
     }
+
   }
 
   onFormSubmit(){
@@ -104,5 +105,28 @@ export class AnmeldenComponent {
     } else {
       console.log('Session cookie does not exist.');
     }
+
+    //Änderungen zum Testen
+    const requestOptions = {
+      withCredentials: true,
+    };
+    this.apiService.postData(this.userModel,'apiUrlProfile',requestOptions).subscribe(
+      (response) => {
+        console.log('Erfolgreich:', response);
+      },
+      (errorResponse) => {
+        console.log('Fehler:', errorResponse);
+      }
+    );
+
+    this.apiService.postData(this.userModel,'apiGetMaschines',requestOptions).subscribe(
+      (response) => {
+        console.log('Erfolgreich:', response);
+      },
+      (errorResponse) => {
+        console.log('Fehler:', errorResponse);
+      }
+    );
+
   }
 }
