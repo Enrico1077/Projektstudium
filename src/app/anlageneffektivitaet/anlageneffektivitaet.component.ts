@@ -47,7 +47,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
   spindleTimeRelative: number = 0;
   public meinWert: number = 80; //Test-Variable (Prozent vom Kreisdiagramm)
   data_request = {
-    MaschineID: 1,
+    MachineID: 1,
   };
 
 
