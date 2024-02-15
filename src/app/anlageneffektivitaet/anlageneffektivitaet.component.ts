@@ -128,6 +128,8 @@ export class AnlageneffektivitaetComponent implements OnInit {
       const requestOptions = {
         withCredentials: true,
       };
+      console.log("gesendete Daten: ");
+      console.log(this.data_request);
       this.apiService.postData(this.data_request,'apiUrlGetData', requestOptions ).subscribe(
         (response) => {
           console.log('Erfolgreich:', response);
