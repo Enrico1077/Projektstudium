@@ -120,7 +120,21 @@ export class AnlageneffektivitaetComponent implements OnInit {
       //cutout: '80%', // Für Chart.js Version 3.x verwenden Sie 'cutout' statt 'cutoutPercentage'
     };
 
+    requestData(){
+      const requestOptions = {
+        withCredentials: true,
+      };
+      this.apiService.postData(true,'apiUrlLogin', requestOptions ).subscribe(
+        (response) => {
+          console.log('Erfolgreich:', response);
 
+        },
+        (errorResponse) => {
+          console.log('Fehler:', errorResponse);
+          window.alert(errorResponse.error.error);
+        }
+      );
+    }
 
 
   }
