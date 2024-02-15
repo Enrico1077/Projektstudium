@@ -39,14 +39,16 @@ Chart.register(centerTextPlugin);
 export class AnlageneffektivitaetComponent implements OnInit {
 
   // Variablen
-  data: any;
+  data_local: any;
   machineTimeString: string = "450";
   spindleTimeString: string = "153";
   spindleTimeNumber: number = 0;
   machineTimeNumber: number = 0;
   spindleTimeRelative: number = 0;
   public meinWert: number = 80; //Test-Variable (Prozent vom Kreisdiagramm)
-
+  data_request = {
+    maschineID: 1,
+  };
 
 
 
@@ -71,8 +73,8 @@ export class AnlageneffektivitaetComponent implements OnInit {
   loadData(){
     this.apiService.getJsonData().subscribe({
       next: (response) => {
-        this.data = response;
-        console.log(this.data);
+        this.data_local = response;
+        console.log(this.data_local);
         this.calculations();
 
       },
@@ -94,8 +96,8 @@ export class AnlageneffektivitaetComponent implements OnInit {
   }
 
   calculateRelativeSpindleTime(){
-    this.spindleTimeNumber = +this.data.App_Daten.Maschinenzeit_Spindel;
-    this.machineTimeNumber = +this.data.App_Daten.Maschinenzeit_Maschine;
+    this.spindleTimeNumber = +this.data_local.App_Daten.Maschinenzeit_Spindel;
+    this.machineTimeNumber = +this.data_local.App_Daten.Maschinenzeit_Maschine;
     this.spindleTimeRelative = (this.spindleTimeNumber / this.machineTimeNumber)*100; //Spindellaufzeit in %
   }
 
@@ -120,11 +122,13 @@ export class AnlageneffektivitaetComponent implements OnInit {
       //cutout: '80%', // Für Chart.js Version 3.x verwenden Sie 'cutout' statt 'cutoutPercentage'
     };
 
+
+
     requestData(){
       const requestOptions = {
         withCredentials: true,
       };
-      this.apiService.postData(true,'apiUrlGetData', requestOptions ).subscribe(
+      this.apiService.postData(this.data_request,'apiUrlGetData', requestOptions ).subscribe(
         (response) => {
           console.log('Erfolgreich:', response);
 
