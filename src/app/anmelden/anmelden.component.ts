@@ -119,7 +119,7 @@ export class AnmeldenComponent {
       }
     );
 
-    this.apiService.postData(this.userModel,'apiUrlProfile',requestOptions).subscribe(
+    this.apiService.postData(this.userModel,'apiGetMaschines',requestOptions).subscribe(
       (response) => {
         console.log('Erfolgreich:', response);
       },
