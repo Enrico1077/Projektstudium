@@ -11,7 +11,7 @@ export class ApiService {
   url={
   apiUrlRegister: 'https://backend.projektstudium.xn--fr-den-bachelor-zvb.eu//auth/register', //url zum registrieren (Konto erstellen)
   apiUrlLogin:    'https://backend.projektstudium.xn--fr-den-bachelor-zvb.eu//auth/login', //url zum login
-  apiUrlProfile:  'https://backend.projektstudium.xn--fr-den-bachelor-zvb.eu//profile/test' //braucht cookie und stellt fest, ob man angemeldet ist
+  apiUrlProfile:  'https://backend.projektstudium.xn--fr-den-bachelor-zvb.eu//profile/test', //braucht cookie und stellt fest, ob man angemeldet ist
   }
 
   constructor(

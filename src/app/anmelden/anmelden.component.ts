@@ -76,6 +76,19 @@ export class AnmeldenComponent {
     {
       console.log("Eigener Cookie ist da!");
     }
+
+    const requestOptions = {
+      withCredentials: true,
+    };
+    this.apiService.postData(this.userModel,'apiUrlProfile',requestOptions).subscribe(
+      (response) => {
+        console.log('Erfolgreich:', response);
+      },
+      (errorResponse) => {
+        console.log('Fehler:', errorResponse);
+      }
+    );
+
   }
 
   onFormSubmit(){
