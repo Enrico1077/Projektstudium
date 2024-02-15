@@ -124,7 +124,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
       const requestOptions = {
         withCredentials: true,
       };
-      this.apiService.postData(true,'apiGetMaschines', requestOptions ).subscribe(
+      this.apiService.postData(true,'apiUrlGetData', requestOptions ).subscribe(
         (response) => {
           console.log('Erfolgreich:', response);
 
