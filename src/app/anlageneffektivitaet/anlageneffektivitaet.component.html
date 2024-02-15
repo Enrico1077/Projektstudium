@@ -3,20 +3,20 @@
 <h3 class="text-center">Acura 65 EL<span style="color:#ed1c24">.</span></h3>
 
 
-
-<div>
-  Spindellaufzeit Relativ: {{ this.spindleTimeRelative }}
-
-
+<div class="content">
+  <div>
+    <canvas baseChart
+      [data]="doughnutChartData"
+      [type]="doughnutChartType"
+      [options]="doughnutChartOptions">
+    </canvas>
+  </div>
+  <div>
+  <h2 class="auftragshistorie">
+    Auftragshistorie
+  </h2>
+  Hier soll später eine Ampel sein, welche
+  die Status-LED der Maschine anzeigt.
+  </div>
 </div>
 
-<button (click)="onConsole()">onConsole</button>
-
-<div style="display: block" class="kreisdiagramm">
-  <canvas baseChart
-    [data]="doughnutChartData"
-    [type]="doughnutChartType"
-    [options]="doughnutChartOptions">
-  </canvas>
-</div>
-<p>test</p>

@@ -2,7 +2,31 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { GlobalService } from '../global.service';
 import { CookieService } from 'ngx-cookie-service';
-import { ChartType, ChartData } from 'chart.js';
+import { Chart, ChartType, ChartData, registerables } from 'chart.js';
+Chart.register(...registerables);
+
+const centerTextPlugin = {
+  id: 'customCenterText',
+  afterDraw: (chart: any) => {
+    if (chart.config.type !== 'doughnut') return;
+    const ctx = chart.ctx;
+    const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
+    const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+    ctx.save();
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.font = '25px Roboto';
+    ctx.fillStyle = '#000';
+    // Stellen Sie sicher, dass Sie den Text korrekt abrufen
+    const value = `${chart.data.datasets[0].data[0]}%`;
+    const roundedValue = parseFloat(value).toFixed(2);
+    const textToShow = `${roundedValue}%`
+    ctx.fillText(textToShow, centerX, centerY);
+    ctx.restore();
+  }
+};
+
+Chart.register(centerTextPlugin);
 
 @Component({
   selector: 'app-anlageneffektivitaet',
@@ -29,10 +53,14 @@ export class AnlageneffektivitaetComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private globalService: GlobalService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+
+
   ){
     this.loadData();
   }
+
+
 
   ngOnInit(): void{
     //this.loadData();
@@ -82,8 +110,10 @@ export class AnlageneffektivitaetComponent implements OnInit {
     datasets: [{
       data: [this.spindleTimeRelative, 100-this.spindleTimeRelative],
       backgroundColor: ['blue', 'lightgray'], // Optional: Farben anpassen
-      hoverBackgroundColor: ['darkblue', 'gray'] // Optional: Hover-Farben anpassen
-    }]};
+      hoverBackgroundColor: ['darkblue', 'gray'], // Optional: Hover-Farben anpassen
+      borderWidth: [300],
+    }],
+  };
     public doughnutChartOptions: any = {
       //circumference: Math.PI,
       //rotation: -Math.PI,

@@ -11,8 +11,10 @@ export class ApiService {
   url={
   apiUrlRegister: 'https://backend.projektstudium.xn--fr-den-bachelor-zvb.eu//auth/register', //url zum registrieren (Konto erstellen)
   apiUrlLogin:    'https://backend.projektstudium.xn--fr-den-bachelor-zvb.eu//auth/login', //url zum login
-  apiUrlProfile:  'https://backend.projektstudium.xn--fr-den-bachelor-zvb.eu//profile/test' //braucht cookie und stellt fest, ob man angemeldet ist
-  }
+  apiUrlProfile:  'https://backend.projektstudium.xn--fr-den-bachelor-zvb.eu//profile/test', //braucht cookie und stellt fest, ob man angemeldet ist
+  apiUrlMachines: 'https://backend.projektstudium.xn--fr-den-bachelor-zvb.eu//profile/getMaschines', //gibt die IDs der mit dem aktuell angemeldeten Nutzer verbunden sind
+  apiUrlData:     'https://backend.projektstudium.xn--fr-den-bachelor-zvb.eu//profile/getMaschineData' //gibt anhand einer MachineID alle Daten der Maschine zurück
+}
 
   constructor(
     private http: HttpClient) {}
