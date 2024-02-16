@@ -84,7 +84,11 @@ export class AnmeldenComponent {
   }
 
   logOff(){
-    this.cookieService.set("login","false");
+    this.cookieService.delete("seesion");
+    if(!this.cookieService.check("session"))
+    {
+      window.alert("Abmeldung erfolgreich!");
+    }
   }
 
   getCookie(name: any) {
