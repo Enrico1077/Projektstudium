@@ -51,7 +51,6 @@ export class AnmeldenComponent {
         console.log('Erfolgreich:', response);
         if(response.message=='Login has been sucessfull')
         {
-          this.cookieService.set("sessionFrontend","session-id");
           window.alert('Anmeldung erfolgreich!');
         }
 
@@ -62,6 +61,8 @@ export class AnmeldenComponent {
       }
     );
   }
+
+
 
   userLoggedIn(){
     if(this.cookieService.check("session"))
@@ -75,6 +76,7 @@ export class AnmeldenComponent {
     {
       console.log("Eigener Cookie ist da!");
     }
+
   }
 
   onFormSubmit(){
@@ -82,7 +84,11 @@ export class AnmeldenComponent {
   }
 
   logOff(){
-    this.cookieService.set("login","false");
+    this.cookieService.delete("session");
+    if(!this.cookieService.check("session"))
+    {
+      window.alert("Abmeldung erfolgreich!");
+    }
   }
 
   getCookie(name: any) {
@@ -103,5 +109,28 @@ export class AnmeldenComponent {
     } else {
       console.log('Session cookie does not exist.');
     }
+
+    //Änderungen zum Testen
+    const requestOptions = {
+      withCredentials: true,
+    };
+    this.apiService.postData(this.userModel,'apiUrlProfile',requestOptions).subscribe(
+      (response) => {
+        console.log('Erfolgreich:', response);
+      },
+      (errorResponse) => {
+        console.log('Fehler:', errorResponse);
+      }
+    );
+
+    this.apiService.postData(this.userModel,'apiGetMaschines',requestOptions).subscribe(
+      (response) => {
+        console.log('Erfolgreich:', response);
+      },
+      (errorResponse) => {
+        console.log('Fehler:', errorResponse);
+      }
+    );
+
   }
 }

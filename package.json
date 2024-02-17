@@ -20,6 +20,8 @@
     "@angular/router": "^17.0.9",
     "@coreui/angular": "^4.7.10",
     "@floating-ui/dom": "^1.5.4",
+    "chart.js": "^4.4.1",
+    "ng2-charts": "^5.0.4",
     "ngx-cookie-service": "^17.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

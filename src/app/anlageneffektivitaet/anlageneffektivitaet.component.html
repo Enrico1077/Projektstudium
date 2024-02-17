@@ -1,5 +1,21 @@
-<h1 class="h1-text-center mt-2">Anlageneffektivität<span style="color:#ed1c24">.</span></h1>
+<h1 class="h1-text-center mt-3">Anlageneffektivität<span style="color:#ed1c24">.</span></h1>
 <!--Maschinenname soll später aus json ausgelesen werden!-->
 <h3 class="text-center">Acura 65 EL<span style="color:#ed1c24">.</span></h3>
 
 
+<div class="content">
+  <div>
+    <canvas baseChart
+      [data]="doughnutChartData"
+      [type]="doughnutChartType"
+      [options]="doughnutChartOptions">
+    </canvas>
+  </div>
+  <div>
+
+  Hier soll später eine Ampel sein, welche
+  die Status-Leuchte der Maschine anzeigt.
+  </div>
+</div>
+
+<button (click)="requestData()">requestData</button>
