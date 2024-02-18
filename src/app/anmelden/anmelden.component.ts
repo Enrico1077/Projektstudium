@@ -41,26 +41,28 @@ export class AnmeldenComponent {
     password: ''
   });
 
-  sendData(){
+  sendData() {
     const requestOptions = {
       withCredentials: true,
     };
-
-    this.apiService.postData(this.userModel, 'apiUrlLogin', requestOptions ).subscribe(
-      (response) => {
-        console.log('Erfolgreich:', response);
-        if(response.message=='Login has been sucessfull')
-        {
-          window.alert('Anmeldung erfolgreich!');
+    this.loginForm.markAllAsTouched();
+    this.loginAttempted = true;
+    if (this.loginForm.valid) {
+      this.apiService.postData(this.userModel, 'apiUrlLogin', requestOptions).subscribe(
+        (response) => {
+          console.log('Erfolgreich:', response);
+          if (response.message == 'Login has been sucessfull') {
+            window.alert('Anmeldung erfolgreich!');
+          }
+        },
+        (errorResponse) => {
+          console.log('Fehler:', errorResponse);
+          window.alert(errorResponse.error.error);
         }
-
-      },
-      (errorResponse) => {
-        console.log('Fehler:', errorResponse);
-        window.alert(errorResponse.error.error);
-      }
-    );
+      );
+    }
   }
+  loginAttempted = false;
 
 
 
