@@ -10,14 +10,32 @@
       [type]="doughnutChartType"
       [options]="doughnutChartOptions">
     </canvas>
+    <div class="text-center">Zeitraum:<br>{{ lastDate }} bis <br>{{ firstDate }}</div>
   </div>
-  <div>
 
+
+  <div>
   Hier soll später eine Ampel sein, welche
   die Status-Leuchte der Maschine anzeigt.
   </div>
 </div>
 
-<p>changes here!</p>
+<div>
+  <select [(ngModel)]="selectedDate2" (change)="onSelect2(selectedDate2)">
+    <option *ngFor="let dateTuple of data_local; let i = index" [value]="i">{{ dateTuple[0] }}</option>
+  </select>
+  <br>
+  <select [(ngModel)]="selectedDate1" (change)="onSelect1(selectedDate1)">
+    <option *ngFor="let dateTuple of data_local; let i = index" [value]="i">{{ dateTuple[0] }}</option>
+  </select>
+
+
+
+  <div *ngIf="selectedDateIndex1 !== null">
+    Ausgewählte Position im Array: {{ selectedDateIndex1 }}
+  </div>
+</div>
+
+
 
 <button (click)="requestData()">requestData</button>

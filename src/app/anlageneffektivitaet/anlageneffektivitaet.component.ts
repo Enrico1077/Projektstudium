@@ -47,7 +47,14 @@ export class AnlageneffektivitaetComponent implements OnInit {
   spindleTimeNumber: number = 0;
   machineTimeNumber: number = 0;
   spindleTimeRelative: number = 0;
-  public meinWert: number = 80; //Test-Variable (Prozent vom Kreisdiagramm)
+  dataArrayLength: number = 0;
+  firstDate: string = "0";
+  lastDate: string = "0";
+  selectedDateIndex1: number = 0;
+  selectedDateIndex2: number = 0;
+  selectedDate1: string | null = null;
+  selectedDate2: string | null = null;
+  spindleTimeTimeFrame: string = "0";
   data_request = {
     MachineID: 1,
   };
@@ -75,8 +82,9 @@ export class AnlageneffektivitaetComponent implements OnInit {
   loadData(){
     this.apiService.getJsonData().subscribe({
       next: (response) => {
-        this.data_local = response;
-        console.log(this.data_local[0]);
+        //this.data_local = response;
+        console.log(this.data_local);
+        console.log(this.data_local[0][1].App_Daten.Maschinenzeit_Maschine);
         this.calculations();
 
       },
@@ -87,7 +95,12 @@ export class AnlageneffektivitaetComponent implements OnInit {
   }
 
   calculations(){
+    this.requestData();
+    this.dataArrayLength = this.data_local.length;
+    this.selectedDateIndex1 = this.dataArrayLength-1;
+    this.selectedDateIndex2 = 0;
     this.calculateRelativeSpindleTime();
+    console.log(this.dataArrayLength);
     this.doughnutChartData={
       datasets: [{
         data: [this.spindleTimeRelative, 100-this.spindleTimeRelative],
@@ -95,12 +108,40 @@ export class AnlageneffektivitaetComponent implements OnInit {
         hoverBackgroundColor: ['#DF0101', 'gray']
       }]
     };
+    this.calculateTimeFrame();
+    console.log("selected date: " + this.selectedDate1);
+    this.setSelectedDate();
+    console.log("selected date: " + this.selectedDate1);
   }
 
   calculateRelativeSpindleTime(){
-    //this.spindleTimeNumber = +this.data_local.App_Daten.Maschinenzeit_Spindel;
-    //this.machineTimeNumber = +this.data_local.App_Daten.Maschinenzeit_Maschine;
-    //this.spindleTimeRelative = (this.spindleTimeNumber / this.machineTimeNumber)*100; //Spindellaufzeit in %
+    //Temporär ist die Eingabe hardcoded
+    //Eingabe soll später über dropdown erfolgen, wo user aus allen Zeiträumen auswählen kann
+
+
+    this.spindleTimeNumber = this.data_local[this.selectedDateIndex1][1].App_Daten.Maschinenzeit_Spindel
+    - this.data_local[this.selectedDateIndex2][1].App_Daten.Maschinenzeit_Spindel;
+    console.log("DifSpindleTime: " + this.spindleTimeNumber);
+
+    this.machineTimeNumber = this.data_local[this.selectedDateIndex1][1].App_Daten.Maschinenzeit_Maschine
+    - this.data_local[this.selectedDateIndex2][1].App_Daten.Maschinenzeit_Maschine;
+    console.log("Dif MachineTime: " + this.machineTimeNumber);
+
+    this.spindleTimeRelative = (this.spindleTimeNumber / this.machineTimeNumber)*100; //Spindellaufzeit in %
+  }
+
+  calculateTimeFrame(){
+    //aktuell wird Zeitraum als string gespeichert, zwischen erstem Wert und letzten Wert
+    this.firstDate = this.data_local[this.selectedDateIndex1][0]
+    this.lastDate = this.data_local[this.selectedDateIndex2][0];
+    console.log("first date: \n" + this.firstDate);
+    console.log("second date: \n" + this.lastDate);
+
+  }
+
+  setSelectedDate(){
+    this.selectedDate1 = this.data_local[0][0];
+    this.selectedDate2 = this.data_local[0][this.data_local.length - 1];
   }
 
   onConsole(){
@@ -118,12 +159,24 @@ export class AnlageneffektivitaetComponent implements OnInit {
       borderWidth: [300],
     }],
   };
+
     public doughnutChartOptions: any = {
       //circumference: Math.PI,
       //rotation: -Math.PI,
       //cutout: '80%', // Für Chart.js Version 3.x verwenden Sie 'cutout' statt 'cutoutPercentage'
     };
-
+    updateChartData() {
+      this.calculateRelativeSpindleTime(); // Annahme, dass diese Methode Ihre Daten berechnet und vorbereitet
+      this.doughnutChartData = {
+        datasets: [{
+          data: [this.spindleTimeRelative, 100 - this.spindleTimeRelative],
+          backgroundColor: ['#ed1c24', 'lightgray'],
+          hoverBackgroundColor: ['#DF0101', 'gray']
+        }]
+      };
+      // Hier könnten Sie weitere Logik zum Neuzeichnen des Charts haben, falls nötig
+      // Zum Beispiel könnten Sie eine Logik haben, um das Chart.js-Objekt neu zu instanziieren oder zu aktualisieren.
+    }
 
 
     requestData(){
@@ -134,6 +187,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
       console.log(this.data_request);
       this.apiService.postData(this.data_request,'apiUrlGetData', requestOptions ).subscribe(
         (response) => {
+          this.data_local = response;
           console.log('Erfolgreich:', response);
 
         },
@@ -142,6 +196,20 @@ export class AnlageneffektivitaetComponent implements OnInit {
           window.alert(errorResponse.error.error);
         }
       );
+    }
+
+    onSelect1(date: any): void {
+      this.selectedDateIndex1 = date;
+      console.log('Ausgewählte Position: ', this.selectedDateIndex1);
+      this.calculateTimeFrame();
+      this.updateChartData();
+    }
+
+    onSelect2(date: any): void {
+      this.selectedDateIndex2 = date;
+      console.log('Ausgewählte Position: ', this.selectedDateIndex2);
+      this.calculateTimeFrame();
+      this.updateChartData();
     }
 
 
