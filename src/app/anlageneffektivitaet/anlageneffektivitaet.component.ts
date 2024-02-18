@@ -28,6 +28,8 @@ const centerTextPlugin = {
 
 Chart.register(centerTextPlugin);
 
+
+
 @Component({
   selector: 'app-anlageneffektivitaet',
   templateUrl: './anlageneffektivitaet.component.html',
@@ -39,7 +41,7 @@ Chart.register(centerTextPlugin);
 export class AnlageneffektivitaetComponent implements OnInit {
 
   // Variablen
-  data_local: any;
+  data_local: any[] = [0];
   machineTimeString: string = "450";
   spindleTimeString: string = "153";
   spindleTimeNumber: number = 0;
@@ -74,7 +76,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
     this.apiService.getJsonData().subscribe({
       next: (response) => {
         this.data_local = response;
-        console.log(this.data_local);
+        console.log(this.data_local[0]);
         this.calculations();
 
       },
@@ -96,9 +98,9 @@ export class AnlageneffektivitaetComponent implements OnInit {
   }
 
   calculateRelativeSpindleTime(){
-    this.spindleTimeNumber = +this.data_local.App_Daten.Maschinenzeit_Spindel;
-    this.machineTimeNumber = +this.data_local.App_Daten.Maschinenzeit_Maschine;
-    this.spindleTimeRelative = (this.spindleTimeNumber / this.machineTimeNumber)*100; //Spindellaufzeit in %
+    //this.spindleTimeNumber = +this.data_local.App_Daten.Maschinenzeit_Spindel;
+    //this.machineTimeNumber = +this.data_local.App_Daten.Maschinenzeit_Maschine;
+    //this.spindleTimeRelative = (this.spindleTimeNumber / this.machineTimeNumber)*100; //Spindellaufzeit in %
   }
 
   onConsole(){

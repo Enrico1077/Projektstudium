@@ -1,25 +1,152 @@
-{
-
-
-    "App_Daten": {
-        "Aktuelles_NC-Programm": "Progamm_1.SPF",
-		"Maschinenzeit_Steuerung": "639",
-		"Maschinenzeit_Maschine": "450",
-		"Maschinenzeit_Spindel": "300",
-		"Meldeleuchte_Programm_laeuft": "1",
-		"Meldeleuchte_Progam_ist_fertig": "0",
-		"Meldeleuchte_Alarm_steht_an": "0",
-        "Aktuelle_Spindeldrehzahl": "12000",
-        "Betriebsart_Auto": "1",
-		"Betriebsart_MDA": "0",
-		"Betriebsart_JOG": "0",
-        "Override_Feed": "100",
-		"Override_Spindel": "100",
-		"Schwingungssensor_Aktualwert": "75",
-		"Schwingungssensor_Bereich_Rot": "10",
-		    "Schwingungssensor_Bereich_Gelb": "30",
-		    "Schwingungssensor_Bereich_Grün": "10000",
-        "Error": "Wartung in 50 Stunden"
-    }
-}
-
+[
+  [
+      "Thu, 15 Feb 2024 09:30:00 GMT",
+      {
+          "App_Daten": {
+              "Aktuelle_Spindeldrehzahl": "12000",
+              "Aktuelles_NC-Programm": "Progamm_1.SPF",
+              "Betriebsart_Auto": "1",
+              "Betriebsart_JOG": "0",
+              "Betriebsart_MDA": "0",
+              "Error": "Wartung in 50 Stunden",
+              "Maschinenzeit_Maschine": "450",
+              "Maschinenzeit_Spindel": "153",
+              "Maschinenzeit_Steuerung": "623",
+              "Meldeleuchte_Alarm_steht_an": "0",
+              "Meldeleuchte_Progam_ist_fertig": "0",
+              "Meldeleuchte_Programm_laeuft": "1",
+              "Override_Feed": "100",
+              "Override_Spindel": "100",
+              "Schwingungssensor_Aktualwert": "75",
+              "Schwingungssensor_Bereich_Gelb": "30",
+              "Schwingungssensor_Bereich_Grün": "10000",
+              "Schwingungssensor_Bereich_Rot": "10"
+          }
+      }
+  ],
+  [
+      "Thu, 15 Feb 2024 13:15:17 GMT",
+      {
+          "App_Daten": {
+              "Aktuelle_Spindeldrehzahl": "12000",
+              "Aktuelles_NC-Programm": "Progamm_1.SPF",
+              "Betriebsart_Auto": "1",
+              "Betriebsart_JOG": "0",
+              "Betriebsart_MDA": "0",
+              "Error": "Wartung in 50 Stunden",
+              "Maschinenzeit_Maschine": "450",
+              "Maschinenzeit_Spindel": "153",
+              "Maschinenzeit_Steuerung": "623",
+              "Meldeleuchte_Alarm_steht_an": "0",
+              "Meldeleuchte_Progam_ist_fertig": "0",
+              "Meldeleuchte_Programm_laeuft": "1",
+              "Override_Feed": "100",
+              "Override_Spindel": "100",
+              "Schwingungssensor_Aktualwert": "75",
+              "Schwingungssensor_Bereich_Gelb": "30",
+              "Schwingungssensor_Bereich_Grün": "10000",
+              "Schwingungssensor_Bereich_Rot": "10"
+          }
+      }
+  ],
+  [
+      "Thu, 15 Feb 2024 13:15:38 GMT",
+      {
+          "App_Daten": {
+              "Aktuelle_Spindeldrehzahl": "12000",
+              "Aktuelles_NC-Programm": "Progamm_1.SPF",
+              "Betriebsart_Auto": "1",
+              "Betriebsart_JOG": "0",
+              "Betriebsart_MDA": "0",
+              "Error": "Wartung in 50 Stunden",
+              "Maschinenzeit_Maschine": "450",
+              "Maschinenzeit_Spindel": "153",
+              "Maschinenzeit_Steuerung": "623",
+              "Meldeleuchte_Alarm_steht_an": "0",
+              "Meldeleuchte_Progam_ist_fertig": "0",
+              "Meldeleuchte_Programm_laeuft": "1",
+              "Override_Feed": "100",
+              "Override_Spindel": "100",
+              "Schwingungssensor_Aktualwert": "75",
+              "Schwingungssensor_Bereich_Gelb": "30",
+              "Schwingungssensor_Bereich_Grün": "10000",
+              "Schwingungssensor_Bereich_Rot": "10"
+          }
+      }
+  ],
+  [
+      "Thu, 15 Feb 2024 13:15:40 GMT",
+      {
+          "App_Daten": {
+              "Aktuelle_Spindeldrehzahl": "12000",
+              "Aktuelles_NC-Programm": "Progamm_1.SPF",
+              "Betriebsart_Auto": "1",
+              "Betriebsart_JOG": "0",
+              "Betriebsart_MDA": "0",
+              "Error": "Wartung in 50 Stunden",
+              "Maschinenzeit_Maschine": "450",
+              "Maschinenzeit_Spindel": "153",
+              "Maschinenzeit_Steuerung": "623",
+              "Meldeleuchte_Alarm_steht_an": "0",
+              "Meldeleuchte_Progam_ist_fertig": "0",
+              "Meldeleuchte_Programm_laeuft": "1",
+              "Override_Feed": "100",
+              "Override_Spindel": "100",
+              "Schwingungssensor_Aktualwert": "75",
+              "Schwingungssensor_Bereich_Gelb": "30",
+              "Schwingungssensor_Bereich_Grün": "10000",
+              "Schwingungssensor_Bereich_Rot": "10"
+          }
+      }
+  ],
+  [
+      "Thu, 15 Feb 2024 13:15:41 GMT",
+      {
+          "App_Daten": {
+              "Aktuelle_Spindeldrehzahl": "12000",
+              "Aktuelles_NC-Programm": "Progamm_1.SPF",
+              "Betriebsart_Auto": "1",
+              "Betriebsart_JOG": "0",
+              "Betriebsart_MDA": "0",
+              "Error": "Wartung in 50 Stunden",
+              "Maschinenzeit_Maschine": "450",
+              "Maschinenzeit_Spindel": "153",
+              "Maschinenzeit_Steuerung": "623",
+              "Meldeleuchte_Alarm_steht_an": "0",
+              "Meldeleuchte_Progam_ist_fertig": "0",
+              "Meldeleuchte_Programm_laeuft": "1",
+              "Override_Feed": "100",
+              "Override_Spindel": "100",
+              "Schwingungssensor_Aktualwert": "75",
+              "Schwingungssensor_Bereich_Gelb": "30",
+              "Schwingungssensor_Bereich_Grün": "10000",
+              "Schwingungssensor_Bereich_Rot": "10"
+          }
+      }
+  ],
+  [
+      "Thu, 15 Feb 2024 15:46:37 GMT",
+      {
+          "App_Daten": {
+              "Aktuelle_Spindeldrehzahl": "12000",
+              "Aktuelles_NC-Programm": "Progamm_1.SPF",
+              "Betriebsart_Auto": "1",
+              "Betriebsart_JOG": "0",
+              "Betriebsart_MDA": "0",
+              "Error": "Wartung in 50 Stunden",
+              "Maschinenzeit_Maschine": "450",
+              "Maschinenzeit_Spindel": "153",
+              "Maschinenzeit_Steuerung": "623",
+              "Meldeleuchte_Alarm_steht_an": "0",
+              "Meldeleuchte_Progam_ist_fertig": "0",
+              "Meldeleuchte_Programm_laeuft": "1",
+              "Override_Feed": "100",
+              "Override_Spindel": "100",
+              "Schwingungssensor_Aktualwert": "75",
+              "Schwingungssensor_Bereich_Gelb": "30",
+              "Schwingungssensor_Bereich_Grün": "10000",
+              "Schwingungssensor_Bereich_Rot": "10"
+          }
+      }
+  ]
+]
