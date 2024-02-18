@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./einstellungen.component.scss']
 })
 export class EinstellungenComponent {
-
+  toggleDarkMode(): void {
+    const body = document.body;
+    body.classList.toggle('dark_mode');
+  }
 }
