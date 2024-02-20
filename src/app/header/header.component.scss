@@ -1,29 +1,6 @@
-header {
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-  background-color: white;
-}
-
 .hedelius-logo {
   width: 150px;
   margin-right: 10px;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-}
-
-a {
-  color: black;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration-line: underline;
-  text-decoration-color: #ed1c24;
-  text-underline-position: under;
 }
 
 .anmelden {
@@ -55,36 +32,6 @@ a:hover {
   margin-bottom: 1px;
 }
 
-.menu-links {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap; /* Add this line */
-  min-width: 600px; /* Add this line */
-}
-
-.menu-item {
-  margin: 0 10px;
-  flex-basis: 5px; /* Add this line */
-}
-
-.profilbild {
-  height: 40px;
-  margin-bottom: 1px;
-}
-
-.anmelden p {
-  margin: 0;
-}
-
-.acura65-marathon {
-  width: 100%;
-}
-
-.navbar select {
-  padding: 5px;
-  font-size: inherit;
-}
-
 .navbar-2 {
   color: white;
   background-color: #58585a;
@@ -102,16 +49,89 @@ a:hover {
 .bundle {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-basis: 200px; /* Add this line */
+  align-items: top;
 }
 
-@media screen and (max-width: 628px) {
-  .menu-links {
-    flex-direction: column;
+
+// neue Addition
+body {
+
+  margin-top: 50px; /*By adding a margin on top (add some space) might help to prevent the body touching the header*/
+
+}
+
+nav {
+  /* styling inside the nav */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+  /* style for the link, onglets link*/
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links li {
+  padding: 0 20px;
+}
+
+.nav-links a {
+  color: var(--secondary-colour);
+  text-decoration: none;
+}
+
+
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.line1, .line2, .line3 {
+  width: 25px;
+  height: 3px;
+  background-color: var(--secondary-colour);
+  margin: 5px;
+}
+
+.active {
+  color: red;
+}
+
+/***** This is used for ajusting the side of the windows****************************************************************************/
+
+@media screen and (max-width: 1150px) {
+  .nav-links {
+      display: none;
   }
 
-  .menu-item {
-    margin: 5px 0;
+  .burger {
+      display: block;
   }
+
+  .nav-active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .nav-active .nav-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .nav-active .nav-links li {
+      padding: 10px 0;
+  }
+
+  
+
+
 }

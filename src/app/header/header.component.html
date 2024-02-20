@@ -1,46 +1,47 @@
 <header>
-  <div class="navbar">
+  <nav>
     <div class="bundle">
       <a routerLink="">
-        <img src="assets/img/logo.png" class="hedelius-logo">
+        <img src="assets/img/logo.png"  class="hedelius-logo darken-image">
       </a>
-
+  
       <div>
         <a routerLink="">
-          Acura 65 EL
+          Acura <br >
+          65 EL
         </a>
       </div>
     </div>
-    <div class="menu-links">
-      <div class="menu-item">
-        <a routerLink="/auftragshistorie">Auftragshistorie</a>
+      <!-- Main Navigation bar Links -->
+      <ul class="nav-links">
+        <li><a routerLink="/auftragshistorie">Auftragshistorie</a></li>
+        <li><a routerLink="/auftragswarteschlange">Auftragswarteschlange</a></li>
+        <li><a routerLink="/fehlermeldungen">Fehlermeldungen</a></li>
+        <li><a routerLink="/anlageneffektivitaet">Anlageneffektivität</a></li>
+
+      </ul>
+      <!-- Menu icon with 3 lines-->
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
       </div>
-      <div class="menu-item">
-        <a routerLink="/auftragswarteschlange">Auftragswarteschlange</a>
-      </div>
-      <div class="menu-item">
-        <a routerLink="/fehlermeldungen">Fehlermeldungen</a>
-      </div>
-      <div class="menu-item">
-        <a routerLink="/anlageneffektivitaet">Anlageneffektivität</a>
-      </div>
-    </div>
 
     <div class="bundle">
       <div class="anmelden">
         <a routerLink="/anmelden">
-          <img class="profilbild" src="assets/img/profil.jpg">
+          <img class="profilbild changed-image" src="assets/img/profil_new.png">
           <p>Anmelden</p>
         </a>
       </div>
       <div class="einstellungen">
         <a routerLink="/einstellungen">
-          <img class="pic-einstellungen" src="assets/img/einstellungen.png">
+          <img class="pic-einstellungen changed-image" src="assets/img/einstellungen.png">
           <p>Einstellungen</p>
         </a>
       </div>
     </div>
-  </div>
+  </nav>
   <div class="navbar-2">
     <a href="https://www.hedelius.de" target="_blank">Webseite</a> |
     <a href="https://www.hedelius.de/kundendienst/kundendienst.html" target="_blank">Service</a> |
