@@ -220,9 +220,9 @@ export class AnlageneffektivitaetComponent implements OnInit {
     gelb = 0;
     gruen = 0;
     setMachineStatus(){
-      this.rot = this.data_local[0][1].App_Daten.Meldeleuchte_Alarm_steht_an;
-      this.gelb = this.data_local[0][1].App_Daten.Meldeleuchte_Progam_ist_fertig;
-      this.gruen = this.data_local[0][1].App_Daten.Meldeleuchte_Programm_laeuft;
+      this.rot = this.data_local[this.dataArrayLength-1][1].App_Daten.Meldeleuchte_Alarm_steht_an;
+      this.gelb = this.data_local[this.dataArrayLength-1][1].App_Daten.Meldeleuchte_Progam_ist_fertig;
+      this.gruen = this.data_local[this.dataArrayLength-1][1].App_Daten.Meldeleuchte_Programm_laeuft;
     }
 
     hover: string = '';
