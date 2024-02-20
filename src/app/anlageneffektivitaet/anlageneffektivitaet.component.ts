@@ -82,7 +82,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
   loadData(){
     this.apiService.getJsonData().subscribe({
       next: (response) => {
-        //this.data_local = response;
+        this.data_local = response;
         console.log(this.data_local);
         console.log(this.data_local[0][1].App_Daten.Maschinenzeit_Maschine);
         this.calculations();
@@ -187,7 +187,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
       console.log(this.data_request);
       this.apiService.postData(this.data_request,'apiUrlGetData', requestOptions ).subscribe(
         (response) => {
-          this.data_local = response;
+          //this.data_local = response;
           console.log('Erfolgreich:', response);
 
         },
