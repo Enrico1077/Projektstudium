@@ -21,9 +21,10 @@
       </div>
     </div>
 
-    <div>
-      Hier soll später eine Ampel sein, welche die Status-Leuchte der Maschine
-      anzeigt.
+    <div class="ampel">
+      <div [ngStyle]="{'background-color': rot === 1 ? 'red' : 'lightgrey'}"></div>
+      <div [ngStyle]="{'background-color': gelb === 1 ? 'yellow' : 'lightgrey'}"></div>
+      <div [ngStyle]="{'background-color': gruen === 1 ? 'green' : 'lightgrey'}"></div>
     </div>
   </div>
 

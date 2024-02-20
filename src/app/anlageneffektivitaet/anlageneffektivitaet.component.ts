@@ -212,7 +212,11 @@ export class AnlageneffektivitaetComponent implements OnInit {
       this.updateChartData();
     }
 
-
+    //Ab hier Code zur Implementierung der Ampel
+    //statische Variablen zum testen
+    rot = 1;
+    gelb = 0;
+    gruen = 1;
   }
 
 
