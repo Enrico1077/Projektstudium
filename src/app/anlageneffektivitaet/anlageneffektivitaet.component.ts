@@ -69,7 +69,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
 
   ){
     //this.loadData();
-    this.calculations();
+    this.requestData();
   }
 
 
@@ -96,7 +96,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
 
   calculations(){
     //this.loadData();
-    this.requestData();
+    //this.requestData();
     console.log("calculations: " + this.data_local);
     this.dataArrayLength = this.data_local.length;
     this.selectedDateIndex1 = this.dataArrayLength-1;
@@ -191,7 +191,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
         (response) => {
           this.data_local = response;
           console.log('Erfolgreich:', response);
-
+          this.calculations();
         },
         (errorResponse) => {
           console.log('Fehler:', errorResponse);
