@@ -75,8 +75,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
 
 
   ngOnInit(): void{
-    //this.loadData();
-    //this.calculateRelativeSpindleTime();
+
   }
 
   //Daten importieren aus json-Datei
@@ -98,6 +97,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
   calculations(){
     //this.loadData();
     this.requestData();
+    console.log("calculations: " + this.data_local);
     this.dataArrayLength = this.data_local.length;
     this.selectedDateIndex1 = this.dataArrayLength-1;
     this.selectedDateIndex2 = 0;
