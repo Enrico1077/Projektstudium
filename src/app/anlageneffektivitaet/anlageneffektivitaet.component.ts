@@ -59,8 +59,8 @@ export class AnlageneffektivitaetComponent implements OnInit {
     private globalService: GlobalService,
     private cookieService: CookieService
   ) {
-    this.loadData();
-    //this.requestData();
+    //this.loadData();
+    this.requestData();
   }
 
   ngOnInit(): void { }
