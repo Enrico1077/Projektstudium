@@ -127,11 +127,11 @@ export class AnlageneffektivitaetComponent implements OnInit {
 
     this.spindleTimeNumber = this.data_local[this.selectedDateIndex1][1].App_Daten.Maschinenzeit_Spindel
     - this.data_local[this.selectedDateIndex2][1].App_Daten.Maschinenzeit_Spindel;
-    console.log("DifSpindleTime: " + this.spindleTimeNumber);
+    //console.log("DifSpindleTime: " + this.spindleTimeNumber);
 
     this.machineTimeNumber = this.data_local[this.selectedDateIndex1][1].App_Daten.Maschinenzeit_Maschine
     - this.data_local[this.selectedDateIndex2][1].App_Daten.Maschinenzeit_Maschine;
-    console.log("Dif MachineTime: " + this.machineTimeNumber);
+    //console.log("Dif MachineTime: " + this.machineTimeNumber);
 
     this.spindleTimeRelative = (this.spindleTimeNumber / this.machineTimeNumber)*100; //Spindellaufzeit in %
   }
@@ -140,18 +140,14 @@ export class AnlageneffektivitaetComponent implements OnInit {
     //aktuell wird Zeitraum als string gespeichert, zwischen erstem Wert und letzten Wert
     this.firstDate = this.data_local[this.selectedDateIndex1][0]
     this.lastDate = this.data_local[this.selectedDateIndex2][0];
-    console.log("first date: \n" + this.firstDate);
-    console.log("second date: \n" + this.lastDate);
+    //console.log("first date: \n" + this.firstDate);
+    //console.log("second date: \n" + this.lastDate);
 
   }
 
   setSelectedDate(){
     this.selectedDate1 = this.data_local[0][0];
     this.selectedDate2 = this.data_local[0][this.data_local.length - 1];
-  }
-
-  onConsole(){
-    console.log(this.spindleTimeRelative);
   }
 
   // Daten für Kreisdiagramm
@@ -193,7 +189,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
       console.log(this.data_request);
       this.apiService.postData(this.data_request,'apiUrlGetData', requestOptions ).subscribe(
         (response) => {
-          //this.data_local = response;
+          this.data_local = response;
           console.log('Erfolgreich:', response);
 
         },
