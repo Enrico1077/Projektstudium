@@ -95,6 +95,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
   }
 
   calculations(){
+    //this.loadData();
     this.requestData();
     this.dataArrayLength = this.data_local.length;
     this.selectedDateIndex1 = this.dataArrayLength-1;
@@ -112,6 +113,10 @@ export class AnlageneffektivitaetComponent implements OnInit {
     console.log("selected date: " + this.selectedDate1);
     this.setSelectedDate();
     console.log("selected date: " + this.selectedDate1);
+    this.setMachineStatus();
+    console.log("rot: " + this.rot);
+    console.log("gelb: " + this.gelb);
+    console.log("gruen: " + this.gruen);
   }
 
   calculateRelativeSpindleTime(){
@@ -214,9 +219,16 @@ export class AnlageneffektivitaetComponent implements OnInit {
 
     //Ab hier Code zur Implementierung der Ampel
     //statische Variablen zum testen
-    rot = 1;
+    rot = 0;
     gelb = 0;
-    gruen = 1;
+    gruen = 0;
+    setMachineStatus(){
+      this.rot = this.data_local[0][1].App_Daten.Meldeleuchte_Alarm_steht_an;
+      this.gelb = this.data_local[0][1].App_Daten.Meldeleuchte_Progam_ist_fertig;
+      this.gruen = this.data_local[0][1].App_Daten.Meldeleuchte_Programm_laeuft;
+    }
+
+    hover: string = '';
   }
 
 

@@ -20,11 +20,61 @@
         Zeitraum:<br />{{ lastDate }} bis <br />{{ firstDate }}
       </div>
     </div>
-
-    <div class="ampel">
-      <div [ngStyle]="{'background-color': rot === 1 ? 'red' : 'lightgrey'}"></div>
-      <div [ngStyle]="{'background-color': gelb === 1 ? 'yellow' : 'lightgrey'}"></div>
-      <div [ngStyle]="{'background-color': gruen === 1 ? 'green' : 'lightgrey'}"></div>
+    <div class="ampel_text">
+      <div class="ampel">
+        <div
+          *ngIf="rot == 1"
+          title="Alarm steht an"
+          class="licht"
+          (mouseenter)="hover = 'stop'"
+          (mouseleave)="hover = ''"
+          [ngStyle]="{ 'background-color': 'red' }"
+        ></div>
+        <div
+          *ngIf="rot == 0"
+          class="licht"
+          (mouseenter)="hover = 'stop'"
+          (mouseleave)="hover = ''"
+          [ngStyle]="{ 'background-color': 'lightgrey' }"
+        ></div>
+        <div
+          *ngIf="gelb == 1"
+          title="Programm ist fertig"
+          class="licht"
+          (mouseenter)="hover = 'achtung'"
+          (mouseleave)="hover = ''"
+          [ngStyle]="{ 'background-color': 'yellow' }"
+        ></div>
+        <div
+          *ngIf="gelb == 0"
+          class="licht"
+          (mouseenter)="hover = 'achtung'"
+          (mouseleave)="hover = ''"
+          [ngStyle]="{ 'background-color': 'lightgrey' }"
+        ></div>
+        <div
+          *ngIf="gruen == 1"
+          title="Programm läuft"
+          class="licht"
+          (mouseenter)="hover = 'gehen'"
+          (mouseleave)="hover = ''"
+          [ngStyle]="{ 'background-color': 'green' }"
+        ></div>
+        <div
+          *ngIf="gruen == 0"
+          class="licht"
+          (mouseenter)="hover = 'gehen'"
+          (mouseleave)="hover = ''"
+          [ngStyle]="{ 'background-color': 'lightgrey' }"
+        ></div>
+      </div>
+      <div class="ampel_beschreibung mt-3">
+        <p>Alarm steht an</p>
+        <br />
+        <p>Programm ist fertig</p>
+        <br />
+        <p>Programm läuft</p>
+      </div>
     </div>
   </div>
 
