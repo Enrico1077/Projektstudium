@@ -4,7 +4,7 @@
       {
           "App_Daten": {
               "Aktuelle_Spindeldrehzahl": "12000",
-              "Aktuelles_NC-Programm": "Progamm_1.SPF",
+              "Aktuelles_NC_Programm": "Progamm_1.SPF",
               "Betriebsart_Auto": "1",
               "Betriebsart_JOG": "0",
               "Betriebsart_MDA": "0",
@@ -13,7 +13,7 @@
               "Maschinenzeit_Spindel": "153",
               "Maschinenzeit_Steuerung": "623",
               "Meldeleuchte_Alarm_steht_an": "1",
-              "Meldeleuchte_Progam_ist_fertig": "0",
+              "Meldeleuchte_Programm_ist_fertig": "0",
               "Meldeleuchte_Programm_laeuft": "0",
               "Override_Feed": "100",
               "Override_Spindel": "100",
@@ -29,7 +29,7 @@
       {
           "App_Daten": {
               "Aktuelle_Spindeldrehzahl": "12000",
-              "Aktuelles_NC-Programm": "Progamm_1.SPF",
+              "Aktuelles_NC_Programm": "Progamm_1.SPF",
               "Betriebsart_Auto": "1",
               "Betriebsart_JOG": "0",
               "Betriebsart_MDA": "0",
@@ -54,7 +54,7 @@
       {
           "App_Daten": {
               "Aktuelle_Spindeldrehzahl": "12000",
-              "Aktuelles_NC-Programm": "Progamm_1.SPF",
+              "Aktuelles_NC_Programm": "Progamm_2.SPF",
               "Betriebsart_Auto": "1",
               "Betriebsart_JOG": "0",
               "Betriebsart_MDA": "0",
@@ -79,7 +79,7 @@
       {
           "App_Daten": {
               "Aktuelle_Spindeldrehzahl": "12000",
-              "Aktuelles_NC-Programm": "Progamm_1.SPF",
+              "Aktuelles_NC_Programm": "Progamm_2.SPF",
               "Betriebsart_Auto": "1",
               "Betriebsart_JOG": "0",
               "Betriebsart_MDA": "0",
@@ -104,7 +104,7 @@
       {
           "App_Daten": {
               "Aktuelle_Spindeldrehzahl": "12000",
-              "Aktuelles_NC-Programm": "Progamm_1.SPF",
+              "Aktuelles_NC_Programm": "Progamm_3.SPF",
               "Betriebsart_Auto": "1",
               "Betriebsart_JOG": "0",
               "Betriebsart_MDA": "0",
@@ -129,7 +129,7 @@
       {
           "App_Daten": {
               "Aktuelle_Spindeldrehzahl": "12000",
-              "Aktuelles_NC-Programm": "Progamm_1.SPF",
+              "Aktuelles_NC_Programm": "Progamm_3.SPF",
               "Betriebsart_Auto": "1",
               "Betriebsart_JOG": "0",
               "Betriebsart_MDA": "0",

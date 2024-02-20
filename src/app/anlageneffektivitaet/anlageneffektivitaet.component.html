@@ -96,5 +96,25 @@
     </div>
 
     <button (click)="requestData()">Daten aktualisieren</button>
+    <div>
+    <h2 style="text-align: center">Bearbeitete Aufträge<span style="color: #ed1c24">.</span></h2>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Datum</th>
+        <th>Bearbeitetes NC-Programm</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let auftrag of extrahierteDaten">
+      <td>{{ auftrag[0] }}</td>
+      <td>{{ auftrag[1] }}</td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+
+  <button (click)="tableHistorie()">test</button>
   </div>
 </div>
