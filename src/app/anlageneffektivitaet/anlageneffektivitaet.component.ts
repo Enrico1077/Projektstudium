@@ -68,7 +68,8 @@ export class AnlageneffektivitaetComponent implements OnInit {
 
 
   ){
-    this.loadData();
+    //this.loadData();
+    this.calculations();
   }
 
 
