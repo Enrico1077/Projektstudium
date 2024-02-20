@@ -1,24 +1,50 @@
-<h1 class="h1-text-center mt-3">Einstellungen<span style="color:#ed1c24">.</span></h1>
+<div class="my-background">
+  <br />
+  <h1 class="h1-text-center">
+    Einstellungen<span style="color: #ed1c24">.</span>
+  </h1>
 
-<nav>
-  <ul>
-    <li>Passwort
-      <ul>
-        <li><a href="#">Passwort ändern</a></li>
-        <li><a href="#">Passwort vergessen?</a></li>
-      </ul>
-    </li>
-    <li>Darstellungseinstellung
-      <ul>
-        <li><input type="checkbox" id="advancedDisplay" onchange="toggleAdvancedDisplay()" /> Erweiterte Darstellung</li>
-        <li><input type="checkbox" id="singleMachine" onchange="toggleSingleMachine()" /> einzelne Maschinen darstellen</li>
-      </ul>
-    </li>
-    <li class="darkmode-toggle">Darkmode
-      <label class="switch">
-        <input type="checkbox" id="dark_mode_button" (click)="toggleDarkMode()" />
-        <span class="slider round"></span>
-      </label>
-    </li>
-  </ul>
-</nav>
+  <nav>
+    <ul>
+      <li>
+        Passwort
+        <ul>
+          <li><a href="#">Passwort ändern</a></li>
+          <li><a href="#">Passwort vergessen?</a></li>
+        </ul>
+      </li>
+      <li>
+        Darstellungseinstellung
+        <ul>
+          <li>
+            <input
+              type="checkbox"
+              id="advancedDisplay"
+              onchange="toggleAdvancedDisplay()"
+            />
+            Erweiterte Darstellung
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              id="singleMachine"
+              onchange="toggleSingleMachine()"
+            />
+            einzelne Maschinen darstellen
+          </li>
+        </ul>
+      </li>
+      <li class="darkmode-toggle">
+        Darkmode
+        <label class="switch">
+          <input
+            type="checkbox"
+            id="dark_mode_button"
+            (click)="toggleDarkMode()"
+          />
+          <span class="slider round"></span>
+        </label>
+      </li>
+    </ul>
+  </nav>
+</div>
