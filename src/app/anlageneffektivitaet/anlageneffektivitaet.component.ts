@@ -121,11 +121,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
   }
 
   calculateRelativeSpindleTime(){
-    //Temporär ist die Eingabe hardcoded
-    //Eingabe soll später über dropdown erfolgen, wo user aus allen Zeiträumen auswählen kann
-
-
-    this.spindleTimeNumber = this.data_local[this.selectedDateIndex1][1].App_Daten.Maschinenzeit_Spindel
+      this.spindleTimeNumber = this.data_local[this.selectedDateIndex1][1].App_Daten.Maschinenzeit_Spindel
     - this.data_local[this.selectedDateIndex2][1].App_Daten.Maschinenzeit_Spindel;
     //console.log("DifSpindleTime: " + this.spindleTimeNumber);
 
@@ -221,7 +217,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
     gruen = 0;
     setMachineStatus(){
       this.rot = this.data_local[this.dataArrayLength-1][1].App_Daten.Meldeleuchte_Alarm_steht_an;
-      this.gelb = this.data_local[this.dataArrayLength-1][1].App_Daten.Meldeleuchte_Progamm_ist_fertig;
+      this.gelb = this.data_local[this.dataArrayLength-1][1].App_Daten.Meldeleuchte_Programm_ist_fertig;
       this.gruen = this.data_local[this.dataArrayLength-1][1].App_Daten.Meldeleuchte_Programm_laeuft;
     }
 

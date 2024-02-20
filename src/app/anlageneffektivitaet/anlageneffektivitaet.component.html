@@ -90,11 +90,7 @@
         {{ dateTuple[0] }}
       </option>
     </select>
-
-    <div *ngIf="selectedDateIndex1 !== null">
-      Ausgewählte Position im Array: {{ selectedDateIndex1 }}
-    </div>
   </div>
 
-  <button (click)="requestData()">requestData</button>
+  <button (click)="requestData()">Daten aktualisieren</button>
 </div>
