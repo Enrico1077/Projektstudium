@@ -1,129 +1,148 @@
 <div class="my-background">
   <div class="maxwidth">
-    <br />
-
+    <br>
     <h1 class="h1-text-center">
       Anlageneffektivität<span style="color: #ed1c24">.</span>
     </h1>
     <!--Maschinenname soll später aus json ausgelesen werden!-->
+    <div *ngIf="userLoggedIn()">
     <h3 class="text-center">
       Acura 65 EL<span style="color: #ed1c24">.</span>
     </h3>
-    <div class="aktualisieren_center">
-    <button class="button button2" (click)="requestData()">Daten aktualisieren</button>
+
+      <div class="aktualisieren_center">
+        <button class="button button2" (click)="requestData()">
+          Daten aktualisieren
+        </button>
+      </div>
+      <div class="content1">
+        <div class="content1-left">
+          <canvas
+            baseChart
+            [data]="doughnutChartData"
+            [type]="doughnutChartType"
+            [options]="doughnutChartOptions"
+          >
+          </canvas>
+          <div class="text-center">
+            Zeitraum:<br />{{ lastDate }} bis <br />{{ firstDate }}
+          </div>
+          <div>
+            <select
+              [(ngModel)]="selectedDate2"
+              (change)="onSelect2(selectedDate2)"
+            >
+              <option
+                *ngFor="let dateTuple of data_local; let i = index"
+                [value]="i"
+              >
+                {{ dateTuple[0] }}
+              </option>
+            </select>
+            <br />
+            <select
+              [(ngModel)]="selectedDate1"
+              (change)="onSelect1(selectedDate1)"
+            >
+              <option
+                *ngFor="let dateTuple of data_local; let i = index"
+                [value]="i"
+              >
+                {{ dateTuple[0] }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="ampel_text">
+          <div class="ampel">
+            <div
+              *ngIf="rot == 1"
+              title="Alarm steht an"
+              class="licht"
+              (mouseenter)="hover = 'stop'"
+              (mouseleave)="hover = ''"
+              [ngStyle]="{ 'background-color': 'red' }"
+            ></div>
+            <div
+              *ngIf="rot == 0"
+              class="licht"
+              (mouseenter)="hover = 'stop'"
+              (mouseleave)="hover = ''"
+              [ngStyle]="{ 'background-color': 'lightgrey' }"
+            ></div>
+            <div
+              *ngIf="gelb == 1"
+              title="Programm ist fertig"
+              class="licht"
+              (mouseenter)="hover = 'achtung'"
+              (mouseleave)="hover = ''"
+              [ngStyle]="{ 'background-color': 'yellow' }"
+            ></div>
+            <div
+              *ngIf="gelb == 0"
+              class="licht"
+              (mouseenter)="hover = 'achtung'"
+              (mouseleave)="hover = ''"
+              [ngStyle]="{ 'background-color': 'lightgrey' }"
+            ></div>
+            <div
+              *ngIf="gruen == 1"
+              title="Programm läuft"
+              class="licht"
+              (mouseenter)="hover = 'gehen'"
+              (mouseleave)="hover = ''"
+              [ngStyle]="{ 'background-color': 'green' }"
+            ></div>
+            <div
+              *ngIf="gruen == 0"
+              class="licht"
+              (mouseenter)="hover = 'gehen'"
+              (mouseleave)="hover = ''"
+              [ngStyle]="{ 'background-color': 'lightgrey' }"
+            ></div>
+          </div>
+          <div class="ampel_beschreibung mt-3">
+            <p>Alarm steht an</p>
+            <br />
+            <p>Programm ist fertig</p>
+            <br />
+            <p>Programm läuft</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="mt-3" style="text-align: center">
+          Bearbeitete Aufträge<span style="color: #ed1c24">.</span>
+        </h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Datum</th>
+                <th>Bearbeitetes NC-Programm</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let auftrag of extrahierteDaten">
+                <td>{{ auftrag[0] }}</td>
+                <td>{{ auftrag[1] }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br />
+        <br />
+      </div>
+    </div>
+    <!--Anzeigen, wenn keine Anmeldung erfolgt ist.-->
+  <div *ngIf="!userLoggedIn()" class="text-center mt-3">
+    Sie haben keinen Zugriff auf diese Seite.
+    <br />
+    <a href="./anmelden" class="bold">Bitte melden Sie sich vorher an.</a>
   </div>
-    <div class="content1">
-      <div class="content1-left">
-        <canvas
-          baseChart
-          [data]="doughnutChartData"
-          [type]="doughnutChartType"
-          [options]="doughnutChartOptions"
-        >
-        </canvas>
-        <div class="text-center">
-          Zeitraum:<br />{{ lastDate }} bis <br />{{ firstDate }}
-        </div>
-        <div>
-          <select [(ngModel)]="selectedDate2" (change)="onSelect2(selectedDate2)">
-            <option *ngFor="let dateTuple of data_local; let i = index" [value]="i">
-              {{ dateTuple[0] }}
-            </option>
-          </select>
-          <br />
-          <select [(ngModel)]="selectedDate1" (change)="onSelect1(selectedDate1)">
-            <option *ngFor="let dateTuple of data_local; let i = index" [value]="i">
-              {{ dateTuple[0] }}
-            </option>
-          </select>
-        </div>
-
-      </div>
-
-      <div class="ampel_text">
-
-        <div class="ampel">
-          <div
-            *ngIf="rot == 1"
-            title="Alarm steht an"
-            class="licht"
-            (mouseenter)="hover = 'stop'"
-            (mouseleave)="hover = ''"
-            [ngStyle]="{ 'background-color': 'red' }"
-          ></div>
-          <div
-            *ngIf="rot == 0"
-            class="licht"
-            (mouseenter)="hover = 'stop'"
-            (mouseleave)="hover = ''"
-            [ngStyle]="{ 'background-color': 'lightgrey' }"
-          ></div>
-          <div
-            *ngIf="gelb == 1"
-            title="Programm ist fertig"
-            class="licht"
-            (mouseenter)="hover = 'achtung'"
-            (mouseleave)="hover = ''"
-            [ngStyle]="{ 'background-color': 'yellow' }"
-          ></div>
-          <div
-            *ngIf="gelb == 0"
-            class="licht"
-            (mouseenter)="hover = 'achtung'"
-            (mouseleave)="hover = ''"
-            [ngStyle]="{ 'background-color': 'lightgrey' }"
-          ></div>
-          <div
-            *ngIf="gruen == 1"
-            title="Programm läuft"
-            class="licht"
-            (mouseenter)="hover = 'gehen'"
-            (mouseleave)="hover = ''"
-            [ngStyle]="{ 'background-color': 'green' }"
-          ></div>
-          <div
-            *ngIf="gruen == 0"
-            class="licht"
-            (mouseenter)="hover = 'gehen'"
-            (mouseleave)="hover = ''"
-            [ngStyle]="{ 'background-color': 'lightgrey' }"
-          ></div>
-        </div>
-        <div class="ampel_beschreibung mt-3">
-          <p>Alarm steht an</p>
-          <br />
-          <p>Programm ist fertig</p>
-          <br />
-          <p>Programm läuft</p>
-        </div>
-      </div>
-    </div>
-
-
-
-
-    <div>
-      <h2 class="mt-3" style="text-align: center">
-        Bearbeitete Aufträge<span style="color: #ed1c24">.</span>
-      </h2>
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Datum</th>
-              <th>Bearbeitetes NC-Programm</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let auftrag of extrahierteDaten">
-              <td>{{ auftrag[0] }}</td>
-              <td>{{ auftrag[1] }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <br>
-      <br>
-    </div>
   </div>
 </div>
+
+

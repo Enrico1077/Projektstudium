@@ -78,7 +78,6 @@ export class AnmeldenComponent {
     {
       console.log("Eigener Cookie ist da!");
     }
-
   }
 
   onFormSubmit(){

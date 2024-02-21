@@ -63,9 +63,13 @@ export class AnlageneffektivitaetComponent implements OnInit {
     private globalService: GlobalService,
     private cookieService: CookieService
   ) {
-    console.log("loadData");
+    //console.log("loadData");
     //this.loadData();
-    this.requestData();
+    if(this.userLoggedIn())
+    {
+      this.requestData();
+    }
+
   }
 
   ngOnInit(): void { }
@@ -248,6 +252,16 @@ export class AnlageneffektivitaetComponent implements OnInit {
         this.extrahierteDaten.push([this.datumPuffer, this.programPuffer]);
         this.i = this.i + 1;
       }
+    }
+  }
+
+  userLoggedIn(): boolean{
+    if(this.cookieService.check('session'))
+    {
+      return true;
+    }
+    else{
+      return false;
     }
   }
 }
