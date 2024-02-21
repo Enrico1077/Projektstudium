@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  align-items: flex-start;
 
 }
 
@@ -58,6 +59,7 @@
 .ampel_text{
   display: flex;
   align-items: center;
+  padding-top: 70px;
 }
 
 .ampel_beschreibung{
@@ -74,4 +76,8 @@
   align-items: center;
 }
 
+.aktualisieren_center{
+  display: flex;
+  justify-content: center;
+}
 

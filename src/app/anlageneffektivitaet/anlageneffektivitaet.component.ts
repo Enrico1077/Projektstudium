@@ -12,11 +12,15 @@ const centerTextPlugin = {
     const ctx = chart.ctx;
     const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
     const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+     // Prüfen, ob wir uns im dark_mode oder light_mode befinden
+    const isDarkMode = document.body.classList.contains('dark_mode');
+    // Farbe basierend auf dem Modus auswählen
+    const textColor = isDarkMode ? '#b7b7b7' : '#232323';  // Weiß für Dunkelmodus, Schwarz für Hellmodus
     ctx.save();
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.font = '25px Roboto';
-    ctx.fillStyle = '#000';
+    ctx.fillStyle = textColor;
     // Stellen Sie sicher, dass Sie den Text korrekt abrufen
     const value = `${chart.data.datasets[0].data[0]}%`;
     const roundedValue = parseFloat(value).toFixed(2);
@@ -60,8 +64,8 @@ export class AnlageneffektivitaetComponent implements OnInit {
     private cookieService: CookieService
   ) {
     console.log("loadData");
-    //this.loadData();
-    this.requestData();
+    this.loadData();
+    //this.requestData();
   }
 
   ngOnInit(): void { }
@@ -71,8 +75,6 @@ export class AnlageneffektivitaetComponent implements OnInit {
     this.apiService.getJsonData().subscribe({
       next: (response) => {
         this.data_local = response;
-        console.log(this.data_local);
-        console.log(this.data_local[0][1].App_Daten.Maschinenzeit_Maschine);
         this.calculations();
       },
       error: (error) => {
@@ -84,12 +86,10 @@ export class AnlageneffektivitaetComponent implements OnInit {
   calculations() {
     //this.loadData();
     //this.requestData();
-    console.log('calculations: ' + this.data_local);
     this.dataArrayLength = this.data_local.length;
     this.selectedDateIndex1 = this.dataArrayLength - 1;
     this.selectedDateIndex2 = 0;
     this.calculateRelativeSpindleTime();
-    console.log(this.dataArrayLength);
     this.doughnutChartData = {
       datasets: [
         {
@@ -111,14 +111,12 @@ export class AnlageneffektivitaetComponent implements OnInit {
         .Maschinenzeit_Spindel -
       this.data_local[this.selectedDateIndex2][1].App_Daten
         .Maschinenzeit_Spindel;
-    //console.log("DifSpindleTime: " + this.spindleTimeNumber);
 
     this.machineTimeNumber =
       this.data_local[this.selectedDateIndex1][1].App_Daten
         .Maschinenzeit_Maschine -
       this.data_local[this.selectedDateIndex2][1].App_Daten
         .Maschinenzeit_Maschine;
-    //console.log("Dif MachineTime: " + this.machineTimeNumber);
 
     this.spindleTimeRelative =
       (this.spindleTimeNumber / this.machineTimeNumber) * 100; //Spindellaufzeit in %
@@ -128,8 +126,6 @@ export class AnlageneffektivitaetComponent implements OnInit {
     //aktuell wird Zeitraum als string gespeichert, zwischen erstem Wert und letzten Wert
     this.firstDate = this.data_local[this.selectedDateIndex1][0];
     this.lastDate = this.data_local[this.selectedDateIndex2][0];
-    //console.log("first date: \n" + this.firstDate);
-    //console.log("second date: \n" + this.lastDate);
   }
 
   setSelectedDate() {
@@ -152,9 +148,11 @@ export class AnlageneffektivitaetComponent implements OnInit {
   };
 
   public doughnutChartOptions: any = {
-    //circumference: Math.PI,
-    //rotation: -Math.PI,
-    //cutout: '80%', // Für Chart.js Version 3.x verwenden Sie 'cutout' statt 'cutoutPercentage'
+    legend:{
+      labels:{
+        fontColor: "blue",
+      },
+    },
   };
   updateChartData() {
     this.calculateRelativeSpindleTime(); // Annahme, dass diese Methode Ihre Daten berechnet und vorbereitet
@@ -175,8 +173,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
     const requestOptions = {
       withCredentials: true,
     };
-    console.log('gesendete Daten: ');
-    console.log(this.data_request);
+    console.log('gesendete Daten: ' + this.data_request);
     this.apiService
       .postData(this.data_request, 'apiUrlGetData', requestOptions)
       .subscribe(
@@ -194,14 +191,12 @@ export class AnlageneffektivitaetComponent implements OnInit {
 
   onSelect1(date: any): void {
     this.selectedDateIndex1 = date;
-    console.log('Ausgewählte Position: ', this.selectedDateIndex1);
     this.calculateTimeFrame();
     this.updateChartData();
   }
 
   onSelect2(date: any): void {
     this.selectedDateIndex2 = date;
-    console.log('Ausgewählte Position: ', this.selectedDateIndex2);
     this.calculateTimeFrame();
     this.updateChartData();
   }
@@ -234,32 +229,25 @@ export class AnlageneffektivitaetComponent implements OnInit {
   programPuffer: string | null = null;
   datumPuffer: string | null = null;
   i: number = 0;
+  //Funktion extrahiert die Daten aus dem array (wie oben beschrieben)
   tableHistorie() {
     this.i = 0;
 
      // Initialisieren Sie das Array hier
 
     for (let k = 0; k < this.dataArrayLength; k++) {
-      console.log(k);
       this.datumPuffer = this.data_local[k][0];
       this.programPuffer = this.data_local[k][1].App_Daten.Aktuelles_NC_Programm;
-      console.log("programPuffer: " + this.datumPuffer);
       if (
         this.i != 0 &&
         this.programPuffer != this.extrahierteDaten[this.i - 1][1]
       ) {
-        console.log("Fall 1");
         this.extrahierteDaten.push([this.datumPuffer, this.programPuffer]);
-        //this.extrahierteDaten[this.i][1] = this.programPuffer;
         this.i = this.i + 1;
       } else if (this.i == 0) {
-        console.log('i: ' + this.i);
         this.extrahierteDaten.push([this.datumPuffer, this.programPuffer]);
-        console.log(69);
-        //this.extrahierteDaten[this.i][1] = this.programPuffer;
         this.i = this.i + 1;
       }
     }
-    console.log('extrahierte Daten: ' + this.extrahierteDaten[0][1]);
   }
 }

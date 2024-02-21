@@ -10,7 +10,7 @@ export class EinstellungenComponent {
   toggleDarkMode(): void {
     const body = document.body;
     body.classList.toggle('dark_mode');
-  
+
     const headerComponent = document.querySelector('app-header');
     if (headerComponent) {
       const logo = headerComponent.querySelector('.hedelius-logo') as HTMLImageElement;
