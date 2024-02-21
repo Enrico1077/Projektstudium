@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 //variablen (Farben)
 :root{
-  --primary-colour: white;
+  --primary-colour: #f6f6f6;
   --secondary-colour: black;
   --th_td-colour:#ddd;
 }
@@ -90,7 +90,7 @@ th {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 10px;
+  font-size: 12px;
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
@@ -106,8 +106,8 @@ th {
 .button1:hover {
   background-color: #ed1c24;
   color: var(--primary-colour);
-  width: 100px;
-  border: 2px solid #ed1c24;
+  //width: 100px;
+  //border: 2px solid #ed1c24;
 }
 
 .button2 {
@@ -119,8 +119,8 @@ th {
 .button2:hover {
   background-color: #ed1c24;
   color: var(--primary-colour);
-  width: 180px;
-  border: 2px solid #ed1c24;
+  //width: 180px;
+  //border: 2px solid #ed1c24;
 }
 
 //switch

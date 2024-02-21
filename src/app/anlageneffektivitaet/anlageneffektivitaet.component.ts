@@ -59,7 +59,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
     private globalService: GlobalService,
     private cookieService: CookieService
   ) {
-    console.log("requestData");
+    console.log("loadData");
     //this.loadData();
     this.requestData();
   }
@@ -100,13 +100,9 @@ export class AnlageneffektivitaetComponent implements OnInit {
       ],
     };
     this.calculateTimeFrame();
-    console.log('selected date: ' + this.selectedDate1);
     this.setSelectedDate();
-    console.log('selected date: ' + this.selectedDate1);
     this.setMachineStatus();
-    console.log('rot: ' + this.rot);
-    console.log('gelb: ' + this.gelb);
-    console.log('gruen: ' + this.gruen);
+    this.tableHistorie();
   }
 
   calculateRelativeSpindleTime() {

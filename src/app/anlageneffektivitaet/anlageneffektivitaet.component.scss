@@ -1,10 +1,17 @@
 
 
-.content{
+.content1{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 
+}
+
+.content1-left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .auftragshistorie{
@@ -61,3 +68,10 @@
   max-width: 1000px;
   margin: auto;
 }
+
+.auftragstabelle{
+  display: block;
+  align-items: center;
+}
+
+
