@@ -64,8 +64,8 @@ export class AnlageneffektivitaetComponent implements OnInit {
     private cookieService: CookieService
   ) {
     console.log("loadData");
-    this.loadData();
-    //this.requestData();
+    //this.loadData();
+    this.requestData();
   }
 
   ngOnInit(): void { }
