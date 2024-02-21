@@ -38,6 +38,7 @@
           class="form-control"
           name="password"
           [(ngModel)]="userModel.password"
+          [(ngModel)]="userModel2.password"
         />
         <small
           class="text-danger"
@@ -46,7 +47,25 @@
         >
       </div>
 
-      <button class="button button1" (click)="sendData()" class="mt-4">
+      <div class="form-group">
+        <label>Passwort wiederholen</label>
+        <input
+          type="text"
+          required
+          #password2="ngModel"
+          [class.is-invalid]="password2.invalid && password2.touched"
+          class="form-control"
+          name="password2"
+          [(ngModel)]="userModel2.password2"
+        />
+        <small
+          class="text-danger"
+          *ngIf="password.invalid && password.touched && registerAttempted"
+          >Passwort wird benötigt</small
+        >
+      </div>
+
+      <button class="button button1" (click)="sendData()" class="mt-2">
         Registrieren
       </button>
     </form>

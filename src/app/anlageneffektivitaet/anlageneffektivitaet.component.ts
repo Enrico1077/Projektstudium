@@ -236,7 +236,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
   //Funktion extrahiert die Daten aus dem array (wie oben beschrieben)
   tableHistorie() {
     this.i = 0;
-
+    this.extrahierteDaten.length = 0; //leert den array
      // Initialisieren Sie das Array hier
 
     for (let k = 0; k < this.dataArrayLength; k++) {
