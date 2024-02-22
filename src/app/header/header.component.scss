@@ -1,6 +1,6 @@
 .hedelius-logo {
   width: 150px;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .anmelden {
@@ -52,20 +52,12 @@
   align-items: top;
 }
 
-
-// neue Addition
-body {
-
-  margin-top: 50px; /*By adding a margin on top (add some space) might help to prevent the body touching the header*/
-
-}
-
 nav {
   /* styling inside the nav */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -104,34 +96,54 @@ nav {
   color: red;
 }
 
-/***** This is used for ajusting the side of the windows****************************************************************************/
 
-@media screen and (max-width: 1150px) {
+/***** Darstellung der Seitenlinks im Breiten Fenster  ****************************************************************************/
+
+@media screen and (min-width: 1101px) {
+
+}
+/***** Darstellung der Seitenlinks im schmalem Fenster ****************************************************************************/
+
+@media screen and (max-width: 1100px) {
   .nav-links {
       display: none;
+      padding: 0;
   }
 
   .burger {
       display: block;
   }
 
-  .nav-active {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
+  //.nav-active {
+  //    display: flex;
+  //    flex-direction: column;
+  //    align-items: center;
+  //}
 
-  .nav-active .nav-links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
+  //.nav-active .nav-links {
+  //    //display: flex ;
+  //    flex-direction: column;
+  //    align-items: left; // centre
+  //}
 
   .nav-active .nav-links li {
       padding: 10px 0;
   }
 
-
-
-
+  .dropdown-content {
+    position: absolute;
+    top: 65px;
+    right: 0;
+    width: 205px;
+    background-color: var(--dropdown-colour);
+    display: none;
+    flex-direction: column;
+    padding: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  .dropdown-active {
+    display: flex;
+  }
 }
