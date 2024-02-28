@@ -64,22 +64,6 @@ export class AnmeldenComponent {
   }
   loginAttempted = false;
 
-
-
-  userLoggedIn(){
-    if(this.cookieService.check("session"))
-    {
-      console.log("Backend-Cookie ist da");
-    }
-    else{
-      window.alert("session ist nicht da");
-    }
-    if(this.cookieService.check("loginSuccessful"))
-    {
-      console.log("Eigener Cookie ist da!");
-    }
-  }
-
   onFormSubmit(){
     console.log('Formular wurde eingereicht', this.userModel);
   }

@@ -148,5 +148,30 @@
               "Schwingungssensor_Bereich_Rot": "10"
           }
       }
-  ]
+  ],
+  [
+    "Thu, 15 Feb 2024 15:46:59 GMT",
+    {
+        "App_Daten": {
+            "Aktuelle_Spindeldrehzahl": "12000",
+            "Aktuelles_NC_Programm": "Progamm_4.SPF",
+            "Betriebsart_Auto": "1",
+            "Betriebsart_JOG": "0",
+            "Betriebsart_MDA": "0",
+            "Error": "Wartung in 50 Stunden",
+            "Maschinenzeit_Maschine": "470",
+            "Maschinenzeit_Spindel": "165",
+            "Maschinenzeit_Steuerung": "623",
+            "Meldeleuchte_Alarm_steht_an": "0",
+            "Meldeleuchte_Programm_ist_fertig": "0",
+            "Meldeleuchte_Programm_laeuft": "1",
+            "Override_Feed": "100",
+            "Override_Spindel": "100",
+            "Schwingungssensor_Aktualwert": "75",
+            "Schwingungssensor_Bereich_Gelb": "30",
+            "Schwingungssensor_Bereich_Grün": "10000",
+            "Schwingungssensor_Bereich_Rot": "10"
+        }
+    }
+]
 ]

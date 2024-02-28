@@ -63,8 +63,8 @@ export class AnlageneffektivitaetComponent implements OnInit {
     private globalService: GlobalService,
     private cookieService: CookieService
   ) {
-    //console.log("loadData");
-    //this.loadData();
+    console.log("loadData");
+    this.loadData();
     if(this.userLoggedIn())
     {
       this.requestData();
@@ -232,8 +232,10 @@ export class AnlageneffektivitaetComponent implements OnInit {
   extrahierteDaten: any[][] = []; //extrahiert NC-Programm und Datum
   programPuffer: string | null = null;
   datumPuffer: string | null = null;
+  aktuellerAuftrag: string | null = null;
   i: number = 0;
   //Funktion extrahiert die Daten aus dem array (wie oben beschrieben)
+  /*
   tableHistorie() {
     this.i = 0;
     this.extrahierteDaten.length = 0; //leert den array
@@ -254,6 +256,23 @@ export class AnlageneffektivitaetComponent implements OnInit {
       }
     }
   }
+  */
+ tableHistorie()
+ {
+    this.extrahierteDaten.length = 0; //leert den array
+    for(let k = 0; k<this.dataArrayLength; k++)
+    {
+      this.datumPuffer = this.data_local[k][0];
+      this.programPuffer = this.data_local[k][1].App_Daten.Aktuelles_NC_Programm;
+      if(this.programPuffer != this.data_local[k+1][1].App_Daten.Aktuelles_NC_Programm)
+      {
+        this.extrahierteDaten.push([this.datumPuffer, this.programPuffer]);
+      }
+    }
+    this.aktuellerAuftrag = this.data_local[this.dataArrayLength-1][1].App_Daten.Aktuelles_NC_Programm;
+    console.log('aktueller Auftrag: ' + this.aktuellerAuftrag);
+ }
+
 
   userLoggedIn(): boolean{
     if(this.cookieService.check('session'))
