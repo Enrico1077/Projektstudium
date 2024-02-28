@@ -45,6 +45,7 @@ const appRoute: Routes = [
     AnmeldenComponent,
     EinstellungenComponent,
     RegistrierenComponent,
+    FehlermeldungenComponent,
     ErrorComponent
   ],
   imports: [

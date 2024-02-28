@@ -121,12 +121,12 @@ ul{
 
 /***** Darstellung der Seitenlinks im Breiten Fenster  ****************************************************************************/
 
-@media screen and (min-width: 1301px) {
+@media screen and (min-width: 1501px) {
 
 }
 /***** Darstellung der Seitenlinks im schmalem Fenster ****************************************************************************/
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1500px) {
   .nav-links {
       display: none;
       padding: 0;

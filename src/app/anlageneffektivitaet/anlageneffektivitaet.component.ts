@@ -63,8 +63,8 @@ export class AnlageneffektivitaetComponent implements OnInit {
     private globalService: GlobalService,
     private cookieService: CookieService
   ) {
-    console.log("loadData");
-    this.loadData();
+
+    //this.loadData();
     if(this.userLoggedIn())
     {
       this.requestData();

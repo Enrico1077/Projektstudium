@@ -2,11 +2,9 @@
   <br>
   <h1 class="h1-text-center">Anmelden<span style="color: #ed1c24">.</span></h1>
 
-  <div class="text-center">Bitte geben Sie Ihre Benutzerdaten ein:</div>
-  <div class="text-center">
-    <br />Benutzerdaten für Tests:<br />Benutzername: testusername<br />Passwort:
-    testpassword<br />
-  </div>
+  <div class="text-center">Bitte geben Sie Ihre Benutzerdaten ein: </div>
+  <br>
+
   <div class="container-fluid mb-5">
     <!--Hier eigentlicher Code. Weiter unten sind auskommentierte Teile eines Tutorials zu Forms-->
     <form #userForm="ngForm">
@@ -46,20 +44,23 @@
         >
       </div>
 
+      <div class="button-center">
+        <button class="button button1" (click)="sendData()">Anmelden</button>
+        <button class="button button1" (click)="logOff()">Abmelden</button>
+      </div>
+
       <div class="text-left_small">
-        Noch keinen Accout?
+        Noch keinen Accout? <br>
         <a href="./registrieren">Hier registrieren.</a>
       </div>
 
       <!--{{ userModel | json }}-->
       <!--<br>-->
 
-      <button class="button button1" (click)="sendData()">Anmelden</button>
-      <button class="button button1" (click)="logOff()">Abmelden</button>
       <br />
-      <br />
+
       <div class="text-left_small">
-        Sollten Sie Ihre Zugangsdaten vergessen haben,
+        Sollten Sie Ihre Zugangsdaten vergessen haben, <br>
         <a href="https://www.hedelius.de/kontakt/kontaktformular.html"
           >kontaktieren Sie bitte Hedelius.</a
         >

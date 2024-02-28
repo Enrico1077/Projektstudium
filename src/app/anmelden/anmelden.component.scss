@@ -1,13 +1,22 @@
 .text-center{
     text-align: center;
-    text-transform: uppercase;
     font-weight: 700px;
   }
 
   .text-left_small{
-    text-align: left;
+    text-align: center;
     text-transform: none;
-    font-size: 10px;
+    font-size: 12px;
+  }
+  .text-left_small a{
+    color: darkgray;
+    text-decoration-color: #ed1c24;
+  }
+
+  .button-center{
+    display: flex;
+    justify-content: left;
+    margin-bottom: 1rem;
   }
 
   //body {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NgModule } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-fehlermeldungen',
@@ -13,15 +14,13 @@ export class FehlermeldungenComponent {
     private cookieService: CookieService
     ){}
 
-  hintergrundBildUrl = '/pfad/zum/dynamischen/bild.jpg';
-
   userLoggedIn(): boolean{
     if(this.cookieService.check('session'))
     {
       return true;
     }
     else{
-      return true;;
+      return false;
     }
   }
 }
