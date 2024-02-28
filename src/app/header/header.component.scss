@@ -1,3 +1,7 @@
+p{
+  margin-bottom: 0rem;
+}
+
 .hedelius-logo {
   width: 150px;
   margin-right: 5px;
@@ -35,6 +39,7 @@
 .navbar-2 {
   color: white;
   background-color: #58585a;
+  padding-left: 15%;
 }
 
 .navbar-2 a {
@@ -57,8 +62,9 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding-left: 15%;
+  padding-right: 15%;
 }
 
 .nav-links {
@@ -67,6 +73,13 @@ nav {
   list-style-type: none;
   justify-content: center;
   align-items: center;
+  font-weight: bold;
+  margin-bottom: 0rem;
+}
+
+.underline:hover{
+  text-decoration: underline;
+  text-decoration-color: red;
 }
 
 .nav-links li {
@@ -76,8 +89,13 @@ nav {
 .nav-links a {
   color: var(--secondary-colour);
   text-decoration: none;
+
 }
 
+.nav-links a:hover{
+  text-decoration: underline;
+  text-decoration-color: #ed1c24;
+}
 
 
 .burger {
@@ -96,15 +114,19 @@ nav {
   color: red;
 }
 
+ul{
+  padding-left: 0rem;
+}
+
 
 /***** Darstellung der Seitenlinks im Breiten Fenster  ****************************************************************************/
 
-@media screen and (min-width: 1101px) {
+@media screen and (min-width: 1301px) {
 
 }
 /***** Darstellung der Seitenlinks im schmalem Fenster ****************************************************************************/
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1300px) {
   .nav-links {
       display: none;
       padding: 0;
@@ -142,7 +164,7 @@ nav {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
   }
-  
+
   .dropdown-active {
     display: flex;
   }

@@ -234,29 +234,8 @@ export class AnlageneffektivitaetComponent implements OnInit {
   datumPuffer: string | null = null;
   aktuellerAuftrag: string | null = null;
   i: number = 0;
-  //Funktion extrahiert die Daten aus dem array (wie oben beschrieben)
-  /*
-  tableHistorie() {
-    this.i = 0;
-    this.extrahierteDaten.length = 0; //leert den array
-     // Initialisieren Sie das Array hier
 
-    for (let k = 0; k < this.dataArrayLength; k++) {
-      this.datumPuffer = this.data_local[k][0];
-      this.programPuffer = this.data_local[k][1].App_Daten.Aktuelles_NC_Programm;
-      if (
-        this.i != 0 &&
-        this.programPuffer != this.extrahierteDaten[this.i - 1][1]
-      ) {
-        this.extrahierteDaten.push([this.datumPuffer, this.programPuffer]);
-        this.i = this.i + 1;
-      } else if (this.i == 0) {
-        this.extrahierteDaten.push([this.datumPuffer, this.programPuffer]);
-        this.i = this.i + 1;
-      }
-    }
-  }
-  */
+  //Funktion extrahiert die Daten aus dem array (wie oben beschrieben)
  tableHistorie()
  {
     this.extrahierteDaten.length = 0; //leert den array
@@ -269,7 +248,8 @@ export class AnlageneffektivitaetComponent implements OnInit {
         this.extrahierteDaten.push([this.datumPuffer, this.programPuffer]);
       }
     }
-    this.aktuellerAuftrag = this.data_local[this.dataArrayLength-1][1].App_Daten.Aktuelles_NC_Programm;
+    this.aktuellerAuftrag =
+    this.data_local[this.dataArrayLength-1][1].App_Daten.Aktuelles_NC_Programm;
     console.log('aktueller Auftrag: ' + this.aktuellerAuftrag);
  }
 

@@ -7,7 +7,7 @@
   <div class="text-center">
     Bitte geben Sie Ihre gewünschten Benutzerdaten ein:
   </div>
-  <div class="container-fluid mb-5">
+  <div class="container-fluid mb-5 mt-5">
     <!--Hier eigentlicher Code. Weiter unten sind auskommentiert Teile eines Tutorials zu Forms-->
     <form #userForm="ngForm">
       <div class="form-group">
@@ -23,7 +23,7 @@
         />
         <small
           class="text-danger"
-          *ngIf="username.invalid && username.touched && registerAttempted"
+          *ngIf="username.invalid && username.touched"
           >Benutzername wird benötigt</small
         >
       </div>
@@ -42,7 +42,7 @@
         />
         <small
           class="text-danger"
-          *ngIf="password.invalid && password.touched && registerAttempted"
+          *ngIf="password.invalid && password.touched"
           >Passwort wird benötigt</small
         >
       </div>
@@ -60,12 +60,12 @@
         />
         <small
           class="text-danger"
-          *ngIf="password.invalid && password.touched && registerAttempted"
+          *ngIf="password2.invalid && password2.touched"
           >Passwort wird benötigt</small
         >
       </div>
 
-      <button class="button button1" (click)="sendData()" class="mt-2">
+      <button class="button button1" (click)="sendData()">
         Registrieren
       </button>
     </form>

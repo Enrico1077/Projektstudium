@@ -8,8 +8,6 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./auftragshistorie.component.scss']
 })
 export class AuftragshistorieComponent {
-test = true;
-
   constructor(
     private globalService: GlobalService,
     private cookieService: CookieService
@@ -24,10 +22,4 @@ test = true;
       return false;
     }
   }
-
-  //Login-Status mit Cookies überprüfen
-  checkLoginStatus(){
-
-  }
-
 }
