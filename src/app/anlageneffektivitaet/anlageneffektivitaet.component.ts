@@ -53,6 +53,8 @@ export class AnlageneffektivitaetComponent implements OnInit {
   selectedDate1: string | null = null;
   selectedDate2: string | null = null;
   spindleTimeTimeFrame: string = '0';
+  chartColour: string[] = ['0'];
+  chartColourHover: string[] = ['0'];
 
   data_request = {
     MachineID: 1,
@@ -64,10 +66,10 @@ export class AnlageneffektivitaetComponent implements OnInit {
     private cookieService: CookieService
   ) {
 
-    //this.loadData();
+    this.loadData();
     if(this.userLoggedIn())
     {
-      this.requestData();
+      //this.requestData();
     }
 
   }
@@ -88,8 +90,6 @@ export class AnlageneffektivitaetComponent implements OnInit {
   }
 
   calculations() {
-    //this.loadData();
-    //this.requestData();
     this.dataArrayLength = this.data_local.length;
     this.selectedDateIndex1 = this.dataArrayLength - 1;
     this.selectedDateIndex2 = 0;
@@ -107,6 +107,8 @@ export class AnlageneffektivitaetComponent implements OnInit {
     this.setSelectedDate();
     this.setMachineStatus();
     this.tableHistorie();
+    this.updateChartData();
+
   }
 
   calculateRelativeSpindleTime() {
@@ -151,6 +153,25 @@ export class AnlageneffektivitaetComponent implements OnInit {
     ],
   };
 
+  setChartColour()
+  {
+    if(this.spindleTimeRelative >= 80)
+    {
+      this.chartColour = ['green', 'lightgray']; //grün
+      this.chartColourHover = ['darkgreen', 'gray'];
+    }
+    else if(this.spindleTimeRelative >= 50)
+    {
+      this.chartColour = ['#ffee00', 'lightgray']; //gelb
+      this.chartColourHover = ['#e0d210', 'gray'];
+    }
+    else
+    {
+      this.chartColour = ['red', 'lightgray']; //rot
+      this.chartColourHover = ['#DF0101', 'gray'];
+    }
+  }
+
   public doughnutChartOptions: any = {
     legend:{
       labels:{
@@ -159,18 +180,17 @@ export class AnlageneffektivitaetComponent implements OnInit {
     },
   };
   updateChartData() {
-    this.calculateRelativeSpindleTime(); // Annahme, dass diese Methode Ihre Daten berechnet und vorbereitet
+    this.calculateRelativeSpindleTime();
+    this.setChartColour();
     this.doughnutChartData = {
       datasets: [
         {
           data: [this.spindleTimeRelative, 100 - this.spindleTimeRelative],
-          backgroundColor: ['#ed1c24', 'lightgray'],
-          hoverBackgroundColor: ['#DF0101', 'gray'],
+          backgroundColor: this.chartColour,
+          hoverBackgroundColor: this.chartColourHover,
         },
       ],
     };
-    // Hier könnten Sie weitere Logik zum Neuzeichnen des Charts haben, falls nötig
-    // Zum Beispiel könnten Sie eine Logik haben, um das Chart.js-Objekt neu zu instanziieren oder zu aktualisieren.
   }
 
   requestData() {
@@ -239,18 +259,18 @@ export class AnlageneffektivitaetComponent implements OnInit {
  tableHistorie()
  {
     this.extrahierteDaten.length = 0; //leert den array
-    for(let k = 0; k<this.dataArrayLength; k++)
+    for(let k = 0; k<this.dataArrayLength-1; k++)
     {
       this.datumPuffer = this.data_local[k][0];
       this.programPuffer = this.data_local[k][1].App_Daten.Aktuelles_NC_Programm;
       if(this.programPuffer != this.data_local[k+1][1].App_Daten.Aktuelles_NC_Programm)
       {
         this.extrahierteDaten.push([this.datumPuffer, this.programPuffer]);
+
       }
     }
     this.aktuellerAuftrag =
     this.data_local[this.dataArrayLength-1][1].App_Daten.Aktuelles_NC_Programm;
-    console.log('aktueller Auftrag: ' + this.aktuellerAuftrag);
  }
 
 
@@ -260,7 +280,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
       return true;
     }
     else{
-      return false;
+      return true;
     }
   }
 }
