@@ -21,7 +21,6 @@ const centerTextPlugin = {
     ctx.textBaseline = 'middle';
     ctx.font = '25px Roboto';
     ctx.fillStyle = textColor;
-    // Stellen Sie sicher, dass Sie den Text korrekt abrufen
     const value = `${chart.data.datasets[0].data[0]}%`;
     const roundedValue = parseFloat(value).toFixed(2);
     const textToShow = `${roundedValue}%`;
