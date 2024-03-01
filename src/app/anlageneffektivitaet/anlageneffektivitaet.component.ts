@@ -65,11 +65,12 @@ export class AnlageneffektivitaetComponent implements OnInit {
     private globalService: GlobalService,
     private cookieService: CookieService
   ) {
-
-    this.loadData();
+    // switch between loading local data for testing and real data from server
+    // remember to toggle the response at "userLoggedIn()" at bottom of code
+    // this.loadData();
     if(this.userLoggedIn())
     {
-      //this.requestData();
+      this.requestData();
     }
 
   }
@@ -280,7 +281,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
       return true;
     }
     else{
-      return true;
+      return false;
     }
   }
 }
