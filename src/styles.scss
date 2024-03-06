@@ -203,6 +203,6 @@ body.dark_mode .acura65-marathon{ // Ka warum man das nochmal spezifisch ändern
 .my-background{
   background-image: var(--background-image);
   height: 100vh;
-  transition: filter 0.9s ease-in-out;
+  transition: background-image 0.5s ease-in-out;
   background-size: cover;
 }
