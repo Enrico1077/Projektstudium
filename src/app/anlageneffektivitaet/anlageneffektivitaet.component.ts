@@ -273,7 +273,9 @@ export class AnlageneffektivitaetComponent implements OnInit {
     this.data_local[this.dataArrayLength-1][1].App_Daten.Aktuelles_NC_Programm;
  }
 
-
+  // ckecks whether user is logged in judging by the session cookie existing
+  // set else to return true for local testing
+  // set else to return false for real data
   userLoggedIn(): boolean{
     if(this.cookieService.check('session'))
     {
