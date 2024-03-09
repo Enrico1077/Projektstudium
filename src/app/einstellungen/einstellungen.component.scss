@@ -15,7 +15,7 @@ nav ul li{
 
 
 nav ul li a:hover{
-  background-color: #d0cece;  
+  background-color: #d0cece;
 }
 
 nav ul li ul{
@@ -34,4 +34,9 @@ nav ul li ul li a{
   color: white;
   padding: 16px 20px;
   border-radius: 10px;
+}
+
+.einstellungen_center{
+  display: flex;
+  justify-content: center;
 }
