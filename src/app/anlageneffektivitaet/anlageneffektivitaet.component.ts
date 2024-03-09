@@ -66,7 +66,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
   ) {
     // switch between loading local data for testing and real data from server
     // remember to toggle the response at "userLoggedIn()" at bottom of code
-    // this.loadData();
+    //this.loadData();
     if(this.userLoggedIn())
     {
       this.requestData();
@@ -263,11 +263,15 @@ export class AnlageneffektivitaetComponent implements OnInit {
     {
       this.datumPuffer = this.data_local[k][0];
       this.programPuffer = this.data_local[k][1].App_Daten.Aktuelles_NC_Programm;
-      if(this.programPuffer != this.data_local[k+1][1].App_Daten.Aktuelles_NC_Programm)
+      if((this.programPuffer != this.data_local[k+1][1].App_Daten.Aktuelles_NC_Programm))
       {
         this.extrahierteDaten.push([this.datumPuffer, this.programPuffer]);
-
       }
+    }
+    if(this.data_local[this.dataArrayLength-1][1].App_Daten.Meldeleuchte_Programm_ist_fertig == 1)
+    {
+      this.extrahierteDaten.push([this.data_local[this.dataArrayLength-1][0],
+        this.data_local[this.dataArrayLength-1][1].App_Daten.Aktuelles_NC_Programm]);
     }
     this.aktuellerAuftrag =
     this.data_local[this.dataArrayLength-1][1].App_Daten.Aktuelles_NC_Programm;
