@@ -95,7 +95,7 @@ export class AnmeldenComponent {
       console.log('Session cookie does not exist.');
     }
 
-    //Änderungen zum Testen
+
     const requestOptions = {
       withCredentials: true,
     };

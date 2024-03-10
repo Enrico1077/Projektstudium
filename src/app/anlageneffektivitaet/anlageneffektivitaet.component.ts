@@ -12,10 +12,8 @@ const centerTextPlugin = {
     const ctx = chart.ctx;
     const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
     const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
-     // Prüfen, ob wir uns im dark_mode oder light_mode befinden
     const isDarkMode = document.body.classList.contains('dark_mode');
-    // Farbe basierend auf dem Modus auswählen
-    const textColor = isDarkMode ? '#b7b7b7' : '#232323';  // Weiß für Dunkelmodus, Schwarz für Hellmodus
+    const textColor = isDarkMode ? '#b7b7b7' : '#232323';
     ctx.save();
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
@@ -76,7 +74,7 @@ export class AnlageneffektivitaetComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  //Daten importieren aus json-Datei
+  //Daten importieren aus json-Datei (für lokale Tests)
   loadData() {
     this.apiService.getJsonData().subscribe({
       next: (response) => {

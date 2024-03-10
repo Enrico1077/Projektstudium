@@ -112,8 +112,6 @@ th {
 .button1:hover {
   background-color: #ed1c24;
   color: var(--primary-colour);
-  //width: 100px;
-  //border: 2px solid #ed1c24;
 }
 
 .button2 {
@@ -125,8 +123,6 @@ th {
 .button2:hover {
   background-color: #ed1c24;
   color: var(--primary-colour);
-  //width: 180px;
-  //border: 2px solid #ed1c24;
 }
 
 //switch
@@ -154,7 +150,7 @@ th {
   background-color: #ccc;
   -webkit-transition: .4s;
   transition: .4s;
-  border-radius: 34px; 
+  border-radius: 34px;
 }
 
 .slider:before {
@@ -167,7 +163,7 @@ th {
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
-  border-radius: 50%; 
+  border-radius: 50%;
 }
 
 input:checked + .slider {
@@ -182,7 +178,7 @@ input:checked + .slider:before {
 
 //Bilder
 
-//darkmode test
+//darkmode
 
 body.dark_mode .darken-image {
   filter: brightness(0.5);
@@ -194,7 +190,7 @@ body.dark_mode .changed-image {
   transition: filter 0.5s ease-in-out;
 }
 
-body.dark_mode .acura65-marathon{ // Ka warum man das nochmal spezifisch ändern muss
+body.dark_mode .acura65-marathon{
   filter: brightness(0.5);
   transition: filter 0.5s ease-in-out;
 }

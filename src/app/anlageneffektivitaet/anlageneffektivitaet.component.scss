@@ -37,8 +37,8 @@
   width: 50px;
   height: 50px;
   margin-bottom: 10px;
-  border-radius: 50%; /* Macht die Felder rund */
-  border: 2px solid #000; /* Fügt einen dünnen schwarzen Rand um jedes Feld hinzu */
+  border-radius: 50%;
+  border: 2px solid #000;
 }
 
 p{
@@ -60,7 +60,7 @@ p{
   padding: 5px;
   border-radius: 5px;
   white-space: nowrap;
-  margin-bottom: 10px; /* zusätzl. Abstand zum untersten Ampellicht */
+  margin-bottom: 10px;
 }
 
 .ampel_text{
